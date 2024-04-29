@@ -83,7 +83,7 @@ def main():
                         plt.cla()
                         Uplot = 1.*U
                         Uplot[mask] = np.nan
-                        np.savetxt("./output/plotMatrix" + str(t) + ".txt", Uplot.T)
+                        # np.savetxt("./output/plotMatrix" + str(t) + ".txt", Uplot.T)
                         plt.imshow(Uplot.T, cmap=cmap)
                         plt.clim(-3, 3)
                         ax = plt.gca()
@@ -96,7 +96,7 @@ def main():
                         
         
         # Save figure
-        plt.savefig('finitedifference_.png',dpi=240)
+        # plt.savefig('finitedifference_.png',dpi=240)
         plt.show()
 
         return 0
