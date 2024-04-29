@@ -45,6 +45,18 @@ void initialize_arrays(double **U, bool **mask, double *xlin)
     }
 }
 
+void copy_and_apply_mask(double **src, double **dest, bool **mask) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (mask[i][j]) {
+                dest[i][j] = HUGE_VAL;  // 使用HUGE_VAL来模拟NaN
+            } else {
+                dest[i][j] = src[i][j];
+            }
+        }
+    }
+}
+
 void transpose(double **src, double **dest)
 {
     for (int i = 0; i < N; i++)
@@ -110,23 +122,19 @@ void update_wave_equation(double **U, double **Uprev, bool **mask, double *xlin)
         Uprev = U;
         U = Unew;
 
-        // for (int i = 0; i < N; i++)
-        // {
-        //     for (int j = 0; j < N; j++)
-        //     {
-        //         if (mask[i][j])
-        //         {
-        //             Unew[i][j] = HUGE_VAL; // 使用HUGE_VAL来模拟NaN
-        //         }
-        //     }
-        // }
+        double **Uplot = (double **)malloc(N * sizeof(double *));
+        for (int i = 0; i < N; i++)
+        {
+            Uplot[i] = (double *)malloc(N * sizeof(double));
+        }
+        copy_and_apply_mask(U, Uplot, mask);
 
-        // double **UT = (double **)malloc(N * sizeof(double *));
-        // for (int i = 0; i < N; i++)
-        // {
-        //     UT[i] = (double *)malloc(N * sizeof(double));
-        // }
-        // transpose(Unew, UT);
+        double **UT = (double **)malloc(N * sizeof(double *));
+        for (int i = 0; i < N; i++)
+        {
+            UT[i] = (double *)malloc(N * sizeof(double));
+        }
+        transpose(Uplot, UT);
 
         // for (int i = 0; i < N; i++)
         // {
@@ -139,7 +147,7 @@ void update_wave_equation(double **U, double **Uprev, bool **mask, double *xlin)
         char filename[50];
         sprintf(filename, "output/uplot_data_%lf.txt", t);  // 格式化文件名
         FILE *file = fopen(filename, "w");
-        output_to_file(U, file);
+        output_to_file(UT, file);
         fclose(file);
 
         t += dt;
