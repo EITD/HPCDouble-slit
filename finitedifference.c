@@ -45,17 +45,17 @@ void initialize_arrays(double **U, bool **mask, double *xlin)
     }
 }
 
-void copy_and_apply_mask(double **src, double **dest, bool **mask) {
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (mask[i][j]) {
-                dest[i][j] = HUGE_VAL;  // 使用HUGE_VAL来模拟NaN
-            } else {
-                dest[i][j] = src[i][j];
-            }
-        }
-    }
-}
+// void copy_and_apply_mask(double **src, double **dest, bool **mask) {
+//     for (int i = 0; i < N; i++) {
+//         for (int j = 0; j < N; j++) {
+//             if (mask[i][j]) {
+//                 dest[i][j] = HUGE_VAL;  // 使用HUGE_VAL来模拟NaN
+//             } else {
+//                 dest[i][j] = src[i][j];
+//             }
+//         }
+//     }
+// }
 
 void transpose(double **src, double **dest)
 {
@@ -118,23 +118,25 @@ void update_wave_equation(double **U, double **Uprev, bool **mask, double *xlin)
         }
 
         // Swap arrays
-        free(Uprev);
-        Uprev = U;
-        U = Unew;
-
-        double **Uplot = (double **)malloc(N * sizeof(double *));
-        for (int i = 0; i < N; i++)
-        {
-            Uplot[i] = (double *)malloc(N * sizeof(double));
+        for (int i = 0; i < N; i++) {
+            memcpy(Uprev[i], U[i], N * sizeof(double));
+            memcpy(U[i], Unew[i], N * sizeof(double));
         }
-        copy_and_apply_mask(U, Uplot, mask);
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (mask[i][j]) {
+                    Unew[i][j] = HUGE_VAL;  // 使用HUGE_VAL来模拟NaN
+                }
+            }
+        }
 
         double **UT = (double **)malloc(N * sizeof(double *));
         for (int i = 0; i < N; i++)
         {
             UT[i] = (double *)malloc(N * sizeof(double));
         }
-        transpose(Uplot, UT);
+        transpose(Unew, UT);
 
         // for (int i = 0; i < N; i++)
         // {
@@ -152,7 +154,7 @@ void update_wave_equation(double **U, double **Uprev, bool **mask, double *xlin)
 
         t += dt;
         
-        free(Uplot);
+        // free(Uplot);
         free(UT);
     }
 
