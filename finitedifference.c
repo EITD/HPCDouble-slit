@@ -152,8 +152,8 @@ void update_wave_equation(double **U, double **Uprev, bool **mask, double *xlin)
 
         t += dt;
         
-        // free(Unew);
-        // free(UT);
+        free(Uplot);
+        free(UT);
     }
 
     // Free the last used arrays
