@@ -7,7 +7,7 @@ cmap.set_bad('gray')
 
 
 plt.cla()
-matrix = np.loadtxt('output/uplot_data_1.999786.txt', delimiter=' ', dtype=float)
+matrix = np.genfromtxt('./output/uplot_data_0.301073.txt', delimiter=' ', filling_values=np.nan)
 plt.imshow(matrix, cmap=cmap)
 plt.clim(-3, 3)
 ax = plt.gca()
