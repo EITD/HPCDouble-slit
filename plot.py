@@ -6,7 +6,7 @@ fig = plt.figure(figsize=(6,6), dpi=80)
 cmap = plt.cm.bwr
 cmap.set_bad('gray')
 
-folder_path = 'serial/output'
+folder_path = 'output'
 entries = sorted(os.listdir(folder_path))
 
 for filename in entries:
