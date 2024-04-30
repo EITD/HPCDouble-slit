@@ -1,0 +1,21 @@
+
+ Performance counter stats for './finitedifference_serial.out':
+
+         15,875.22 msec task-clock:u              #    0.924 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+               894      page-faults:u             #    0.056 K/sec                  
+    46,152,546,269      cycles:u                  #    2.907 GHz                      (83.02%)
+       291,258,311      stalled-cycles-frontend:u #    0.63% frontend cycles idle     (83.38%)
+     7,873,746,416      stalled-cycles-backend:u  #   17.06% backend cycles idle      (83.37%)
+   109,903,522,410      instructions:u            #    2.38  insn per cycle         
+                                                  #    0.07  stalled cycles per insn  (83.32%)
+    21,842,694,407      branches:u                # 1375.899 M/sec                    (83.58%)
+        90,806,156      branch-misses:u           #    0.42% of all branches          (83.33%)
+
+      17.187892957 seconds time elapsed
+
+      14.487215000 seconds user
+       1.369497000 seconds sys
+
+
