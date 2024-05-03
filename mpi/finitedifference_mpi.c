@@ -85,7 +85,7 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
     {
         // Compute new state
         double Unew[N][N];
-
+        MPI_Status status;
         if (rank == 0)
         {
             MPI_Sendrecv(&Unew[start_row][0], N, MPI_DOUBLE, size - 1, 0,
@@ -175,7 +175,7 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
     }
 }
 
-int main()
+int main(int argc, char **argv)
 {
     int rank, size, provided;
     MPI_Init_thread(&argc, &argv, MPI_THREAD_SINGLE, &provided);
