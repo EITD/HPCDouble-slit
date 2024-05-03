@@ -7,7 +7,7 @@
 #SBATCH -t 0:10:00
 #SBATCH -A edu24.DD2356
 # Number of nodes
-#SBATCH -p shared
+#SBATCH -p main
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --nodes=1
@@ -15,4 +15,4 @@
 
 # Run the executable file 
 # and write the output into my_output_file
-srun -n 1 perf stat ./finitedifference_serial.out > serial_perf.txt 2>&1
+perf stat srun -n 1 ./finitedifference_serial.out > serial_perf.txt 2>&1

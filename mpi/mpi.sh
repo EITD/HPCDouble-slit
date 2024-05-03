@@ -7,13 +7,13 @@
 #SBATCH -t 0:10:00
 #SBATCH -A edu24.DD2356
 # Number of nodes
-#SBATCH -p shared
-#SBATCH --ntasks-per-node=4
+#SBATCH -p main
+#SBATCH --ntasks-per-node=128
 #SBATCH --cpus-per-task=1
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH -e error_file.e
 
 # Run the executable file 
 # and write the output into my_output_file
-perf stat srun -n 1 ./finitedifference_mpi.out > mpi_perf.txt 2>&1
+perf stat srun -n 256 ./finitedifference_mpi.out > mpi_perf_256.txt 2>&1
 # srun -n 1 ./finitedifference_mpi.out

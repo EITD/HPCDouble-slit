@@ -7,7 +7,7 @@
 #SBATCH -t 0:10:00
 #SBATCH -A edu24.DD2356
 # Number of nodes
-#SBATCH -p shared
+#SBATCH -p main
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=256
 #SBATCH --nodes=1
@@ -17,5 +17,5 @@
 # and write the output into my_output_file
 export OMP_NUM_THREADS=256 &&
 OMP_PLACES=cores &&
-srun -n 1 perf stat ./finitedifference_openmp.out > openmp_perf.txt 2>&1
+perf stat srun -n 1 ./finitedifference_openmp.out > openmp_perf_main.txt 2>&1
 # srun -n 1 ./finitedifference_openmp.out
