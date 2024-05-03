@@ -89,26 +89,38 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
         if (rank == 0)
         {
             MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, size - 1, 0,
-                         &U[N - 1][0], N, MPI_DOUBLE, size - 1, 0,
+                         &U[end_row][0], N, MPI_DOUBLE, rank + 1, 0,
                          MPI_COMM_WORLD, &status);
         }
-        else
+        else if (rank == size - 1)
         {
             MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
-                         &U[start_row - 1][0], N, MPI_DOUBLE, rank - 1, 0,
-                         MPI_COMM_WORLD, &status);
-        }
-
-        if (rank == size - 1)
-        {
-            MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, 0, 0,
                          &U[0][0], N, MPI_DOUBLE, 0, 0,
                          MPI_COMM_WORLD, &status);
         }
         else
         {
-            MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, rank + 1, 0,
+            MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
                          &U[end_row][0], N, MPI_DOUBLE, rank + 1, 0,
+                         MPI_COMM_WORLD, &status);
+        }
+
+        if (rank == 0)
+        {
+            MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, rank + 1, 0,
+                         &U[N - 1][0], N, MPI_DOUBLE, size - 1, 0,
+                         MPI_COMM_WORLD, &status);
+        }
+        else if (rank == size - 1)
+        {
+            MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, 0, 0,
+                         &U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
+                         MPI_COMM_WORLD, &status);
+        }
+        else
+        {
+            MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, rank + 1, 0,
+                         &U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
                          MPI_COMM_WORLD, &status);
         }
 
