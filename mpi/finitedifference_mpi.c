@@ -157,13 +157,13 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
             {
                 MPI_Recv(&Unew[r * N / size][0], N / size * N, MPI_DOUBLE, r, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             }
-            double UT[N][N];
-            transpose(Unew, UT);
+            // double UT[N][N];
+            // transpose(Unew, UT);
 
             char filename[50];
             sprintf(filename, "output/uplot_data_%lf.txt", t); // 格式化文件名
             FILE *file = fopen(filename, "w");
-            output_to_file(UT, file);
+            output_to_file(Unew, file);
             fclose(file);
         }
         else
