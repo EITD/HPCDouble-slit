@@ -79,49 +79,52 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
     double dx = BOXSIZE / N;
     double dt = (sqrt(2) / 2) * dx / C;
     double fac = dt * dt * C * C / (dx * dx);
-    printf("rank: %d, start: %d, end: %d\n", rank, start_row, end_row);
+    // printf("rank: %d, start: %d, end: %d\n", rank, start_row, end_row);
     double t = 0;
     while (t < TEND)
     {
         // Compute new state
         double Unew[N][N];
-        MPI_Status status;
-        if (rank == 0)
+        if (size > 1)
         {
-            MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, size - 1, 0,
-                         &U[end_row][0], N, MPI_DOUBLE, rank + 1, 0,
-                         MPI_COMM_WORLD, &status);
-        }
-        else if (rank == size - 1)
-        {
-            MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
-                         &U[0][0], N, MPI_DOUBLE, 0, 0,
-                         MPI_COMM_WORLD, &status);
-        }
-        else
-        {
-            MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
-                         &U[end_row][0], N, MPI_DOUBLE, rank + 1, 0,
-                         MPI_COMM_WORLD, &status);
-        }
+            MPI_Status status;
+            if (rank == 0)
+            {
+                MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, size - 1, 0,
+                             &U[end_row][0], N, MPI_DOUBLE, rank + 1, 0,
+                             MPI_COMM_WORLD, &status);
+            }
+            else if (rank == size - 1)
+            {
+                MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
+                             &U[0][0], N, MPI_DOUBLE, 0, 0,
+                             MPI_COMM_WORLD, &status);
+            }
+            else
+            {
+                MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
+                             &U[end_row][0], N, MPI_DOUBLE, rank + 1, 0,
+                             MPI_COMM_WORLD, &status);
+            }
 
-        if (rank == 0)
-        {
-            MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, rank + 1, 0,
-                         &U[N - 1][0], N, MPI_DOUBLE, size - 1, 0,
-                         MPI_COMM_WORLD, &status);
-        }
-        else if (rank == size - 1)
-        {
-            MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, 0, 0,
-                         &U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
-                         MPI_COMM_WORLD, &status);
-        }
-        else
-        {
-            MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, rank + 1, 0,
-                         &U[start_row][0], N, MPI_DOUBLE, rank - 1, 0,
-                         MPI_COMM_WORLD, &status);
+            if (rank == 0)
+            {
+                MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, rank + 1, 0,
+                             &U[N - 1][0], N, MPI_DOUBLE, size - 1, 0,
+                             MPI_COMM_WORLD, &status);
+            }
+            else if (rank == size - 1)
+            {
+                MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, 0, 0,
+                             &U[start_row - 1][0], N, MPI_DOUBLE, rank - 1, 0,
+                             MPI_COMM_WORLD, &status);
+            }
+            else
+            {
+                MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, rank + 1, 0,
+                             &U[start_row - 1][0], N, MPI_DOUBLE, rank - 1, 0,
+                             MPI_COMM_WORLD, &status);
+            }
         }
 
         for (int i = start_row; i < end_row; i++)
@@ -169,13 +172,13 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
             {
                 MPI_Recv(&Unew[r * N / size][0], N / size * N, MPI_DOUBLE, r, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             }
-            // double UT[N][N];
-            // transpose(Unew, UT);
+            double UT[N][N];
+            transpose(Unew, UT);
 
             char filename[50];
             sprintf(filename, "output/uplot_data_%lf.txt", t); // 格式化文件名
             FILE *file = fopen(filename, "w");
-            output_to_file(Unew, file);
+            output_to_file(UT, file);
             fclose(file);
         }
         else
@@ -199,8 +202,8 @@ int main(int argc, char **argv)
     double Uprev[N][N];
     bool mask[N][N];
 
-    int start_row = rank *  N / size;
-    int end_row = (rank + 1) *  N / size;
+    int start_row = rank * N / size;
+    int end_row = (rank + 1) * N / size;
 
     if (rank == 0)
     {
