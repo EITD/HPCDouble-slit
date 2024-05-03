@@ -1,0 +1,21 @@
+
+ Performance counter stats for 'srun -n 256 ./finitedifference_mpi.out':
+
+             50.56 msec task-clock:u              #    0.002 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+             1,484      page-faults:u             #    0.029 M/sec                  
+        40,763,757      cycles:u                  #    0.806 GHz                      (89.06%)
+         2,762,167      stalled-cycles-frontend:u #    6.78% frontend cycles idle     (92.65%)
+        12,101,227      stalled-cycles-backend:u  #   29.69% backend cycles idle      (70.34%)
+        98,573,901      instructions:u            #    2.42  insn per cycle         
+                                                  #    0.12  stalled cycles per insn  (64.99%)
+        17,875,566      branches:u                #  353.556 M/sec                    (95.50%)
+           247,166      branch-misses:u           #    1.38% of all branches          (87.47%)
+
+      27.734472732 seconds time elapsed
+
+       0.031472000 seconds user
+       0.018883000 seconds sys
+
+
