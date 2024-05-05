@@ -15,4 +15,4 @@
 
 # Run the executable file 
 # and write the output into my_output_file
-perf stat srun -n 1 ./finitedifference_serial.out > serial_perf.txt 2>&1
+srun -n 1 perf stat ./finitedifference_serial.out > serial_perf.txt 2>&1

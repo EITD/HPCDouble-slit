@@ -1,21 +1,21 @@
 
- Performance counter stats for 'srun -n 1 ./finitedifference_openmp.out':
+ Performance counter stats for './finitedifference_openmp.out':
 
-             34.36 msec task-clock:u              #    0.002 CPUs utilized          
+            821.21 msec task-clock:u              #    0.998 CPUs utilized          
                  0      context-switches:u        #    0.000 K/sec                  
                  0      cpu-migrations:u          #    0.000 K/sec                  
-             1,328      page-faults:u             #    0.039 M/sec                  
-        32,693,969      cycles:u                  #    0.952 GHz                      (88.41%)
-         1,121,917      stalled-cycles-frontend:u #    3.43% frontend cycles idle     (88.41%)
-         8,404,265      stalled-cycles-backend:u  #   25.71% backend cycles idle      (89.50%)
-        83,932,166      instructions:u            #    2.57  insn per cycle         
-                                                  #    0.10  stalled cycles per insn  (81.15%)
-        17,817,977      branches:u                #  518.569 M/sec                    (78.36%)
-           157,737      branch-misses:u           #    0.89% of all branches          (74.18%)
+               902      page-faults:u             #    0.001 M/sec                  
+     2,713,715,525      cycles:u                  #    3.305 GHz                      (83.15%)
+        18,204,714      stalled-cycles-frontend:u #    0.67% frontend cycles idle     (83.44%)
+     1,391,081,024      stalled-cycles-backend:u  #   51.26% backend cycles idle      (83.44%)
+     7,036,092,814      instructions:u            #    2.59  insn per cycle         
+                                                  #    0.20  stalled cycles per insn  (83.44%)
+       680,830,958      branches:u                #  829.054 M/sec                    (83.44%)
+           612,255      branch-misses:u           #    0.09% of all branches          (83.09%)
 
-      15.566194520 seconds time elapsed
+       0.822518722 seconds time elapsed
 
-       0.016822000 seconds user
-       0.020826000 seconds sys
+       0.822208000 seconds user
+       0.000000000 seconds sys
 
 
