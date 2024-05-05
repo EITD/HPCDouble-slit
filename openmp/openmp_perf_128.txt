@@ -1,0 +1,21 @@
+
+ Performance counter stats for 'srun -n 1 ./finitedifference_openmp.out':
+
+             32.82 msec task-clock:u              #    0.002 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+             1,331      page-faults:u             #    0.041 M/sec                  
+        35,695,961      cycles:u                  #    1.088 GHz                      (75.73%)
+         1,168,089      stalled-cycles-frontend:u #    3.27% frontend cycles idle     (87.88%)
+         8,337,957      stalled-cycles-backend:u  #   23.36% backend cycles idle      (88.84%)
+        84,000,952      instructions:u            #    2.35  insn per cycle         
+                                                  #    0.10  stalled cycles per insn  (88.24%)
+        16,030,536      branches:u                #  488.479 M/sec                    (84.77%)
+           154,284      branch-misses:u           #    0.96% of all branches          (74.55%)
+
+      17.785726130 seconds time elapsed
+
+       0.024646000 seconds user
+       0.012048000 seconds sys
+
+

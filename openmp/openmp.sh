@@ -17,5 +17,5 @@
 # and write the output into my_output_file
 export OMP_NUM_THREADS=256 &&
 OMP_PLACES=cores &&
-perf stat srun -n 1 ./finitedifference_openmp.out > openmp_perf_main.txt 2>&1
+perf stat srun -n 1 ./finitedifference_openmp.out > openmp_perf_256.txt 2>&1
 # srun -n 1 ./finitedifference_openmp.out
