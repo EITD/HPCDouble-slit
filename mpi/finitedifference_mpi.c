@@ -197,6 +197,9 @@ int main(int argc, char **argv)
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
+    double start_time, stop_time, elapsed_time, total_time;
+    start_time = MPI_Wtime();
+
     double xlin[N];
     double U[N][N];
     double Uprev[N][N];
@@ -216,6 +219,16 @@ int main(int argc, char **argv)
     initialize_arrays(U, mask, start_row, end_row);
 
     update_wave_equation(U, Uprev, mask, xlin, start_row, end_row, rank, size);
+
+    stop_time = MPI_Wtime();
+    elapsed_time = stop_time - start_time;
+
+    MPI_Reduce(&elapsed_time, &total_time, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+
+    if (rank == 0)
+    {
+        printf("Average execution time: %f\n", total_time / size);
+    }
 
     return 0;
 }
