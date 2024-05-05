@@ -27,14 +27,14 @@ times = np.array([[1.206496, 1.249228, 1.186479, 1.178838, 1.185821, 1.178749, 1
 means = np.mean(times, axis=1)
 
 def performance_model(p, a, b, c, d, e):
-    with np.errstate(invalid='ignore', divide='ignore'):
-        return a/(p+d) + b*(p+d)**c + e
+        with np.errstate(invalid='ignore', divide='ignore'):
+                return a/(p+d) + b*(p+d)**c + e
 
 params, params_covariance = curve_fit(performance_model, sizes, means)
 
 plt.figure(figsize=(10, 7))
 plt.plot(sizes, means, marker='o', linestyle='-', label='Measured Data')
-plt.plot(sizes, performance_model(sizes, *params), color='red', label='Fitted function: a/p + b*p^c')
+plt.plot(sizes, performance_model(sizes, *params), color='red', label='Fitted function: a/(p+d) + b*(p+d)^c + e')
 plt.xlabel('Number of Processes')
 plt.ylabel('Execution Time (seconds)')
 plt.title('Performance Modeling of Distributed Matrix Multiplication')
