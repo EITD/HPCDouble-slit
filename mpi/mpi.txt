@@ -20,6 +20,28 @@ Average execution time: 0.855924
 longm@uan01:~/Private/DD2356/project> srun -n 1 ./fd
 Average execution time: 0.881856
 
+
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.856419
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.875650
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.858526
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.904753
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.939319
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.855869
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.857441
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.931685
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.878561
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 1 ./fd
+Average execution time: 0.924132
+
 2:
 longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
 Average execution time: 1.176524
@@ -41,6 +63,48 @@ longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
 Average execution time: 1.171542
 longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
 Average execution time: 1.172521
+
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.546520
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.533232
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.594535
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.548988
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.591874
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.538340
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.531097
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.531877
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.526508
+longm@uan01:~/Private/DD2356/project> srun -n 2 ./fd
+Average execution time: 0.565221
+
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.206496
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.249228
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.186479
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.178838
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.185821
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.178749
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.231941
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.207286
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.178388
+longm@uan01:~/Private/DD2356/project> srun -N 1 -n 2 ./fd
+Average execution time: 1.244971
 
 4:
 longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
@@ -64,6 +128,27 @@ Average execution time: 0.622521
 longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
 Average execution time: 0.668473
 
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.696229
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.704933
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.692426
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.678094
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.678371
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.654786
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.694719
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.701237
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.747455
+longm@uan01:~/Private/DD2356/project> srun -n 4 ./fd
+Average execution time: 0.682750
+
 8:
 longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
 Average execution time: 0.404791
@@ -85,6 +170,27 @@ longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
 Average execution time: 0.455935
 longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
 Average execution time: 0.480139
+
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.406984
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.440676
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.403153
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.356672
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.340014
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.447963
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.435164
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.427108
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.386391
+longm@uan01:~/Private/DD2356/project> srun -n 8 ./fd
+Average execution time: 0.503272
 
 16:
 longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
@@ -108,6 +214,27 @@ Average execution time: 0.370914
 longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
 Average execution time: 0.288185
 
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.296546
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.350694
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.393596
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.348008
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.321084
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.368499
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.359577
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.397056
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.296921
+longm@uan01:~/Private/DD2356/project> srun -n 16 ./fd
+Average execution time: 0.315270
+
 32:
 longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
 Average execution time: 0.331694
@@ -129,6 +256,27 @@ longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
 Average execution time: 0.309957
 longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
 Average execution time: 0.333583
+
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.259065
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.343517
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.328899
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.228369
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.251328
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.262712
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.346113
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.314659
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.254058
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.239217
 
 64:
 longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
@@ -152,6 +300,27 @@ Average execution time: 0.304252
 longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
 Average execution time: 0.280079
 
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.283996
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.273704
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.324474
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.269711
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.297539
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.341424
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.301552
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.284397
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.314262
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.301697
+
 128:
 longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
 Average execution time: 1.754447
@@ -174,6 +343,27 @@ Average execution time: 1.785157
 longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
 Average execution time: 1.790668
 
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.646985
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.656064
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.714164
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.660563
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.674421
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.701120
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.644161
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.719139
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.713670
+longm@uan01:~/Private/DD2356/project> srun -n 128 ./fd
+Average execution time: 0.660456
+
 256:
 longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
 Average execution time: 4.356557
@@ -195,3 +385,130 @@ longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
 Average execution time: 4.295181
 longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
 Average execution time: 4.305166
+
+
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.198140
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.377847
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.349366
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.428361
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.353365
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.343055
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.326812
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.408251
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.231253
+longm@uan01:~/Private/DD2356/project> srun -n 256 ./fd
+Average execution time: 4.336702
+
+
+
+
+
+
+32：
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.271454
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.265482
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.304798
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.230168
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.238356
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.330522
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.245018
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.303153
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.309436
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.232320
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.303727
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.225925
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.247440
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.298404
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.298436
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.297942
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.222796
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.249273
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.288656
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.240846
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.295179
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.332700
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.314188
+longm@uan01:~/Private/DD2356/project> srun -n 32 ./fd
+Average execution time: 0.307121
+
+64：
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.318308
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.356234
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.266473
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.352015
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.350438
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.334242
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.288045
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.253727
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.335570
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.353764
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.352265
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.342690
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.349356
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.290323
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.277318
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.342214
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.259336
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.337492
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.349988
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.323674
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.341316
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.258856
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.265155
+longm@uan01:~/Private/DD2356/project> srun -n 64 ./fd
+Average execution time: 0.350915
