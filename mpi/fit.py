@@ -25,9 +25,9 @@ times = np.array([[1.206496, 1.249228, 1.186479, 1.178838, 1.185821, 1.178749, 1
                   [4.198140, 4.377847, 4.349366, 4.428361, 4.353365, 4.343055, 4.326812, 4.408251, 4.231253, 4.336702]])
 
 means = np.mean(times, axis=1)
-print(means)
 
 def performance_model(p, a, b, c, d, e):
+    with np.errstate(invalid='ignore', divide='ignore'):
         return a/(p+d) + b*(p+d)**c + e
 
 params, params_covariance = curve_fit(performance_model, sizes, means)
@@ -42,4 +42,4 @@ plt.xticks(sizes)
 plt.legend()
 plt.savefig('model.png')
 
-print("Fitted parameters: a =", params[0], ", b =", params[1], ", c =", params[2])
+print("Fitted parameters: a =", params[0], ", b =", params[1], ", c =", params[2], ", d =", params[3], ", e =", params[4])
