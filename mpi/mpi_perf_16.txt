@@ -1,21 +1,21 @@
 
  Performance counter stats for 'srun -n 16 ./finitedifference_mpi.out':
 
-             22.89 msec task-clock:u              #    0.001 CPUs utilized          
+             20.94 msec task-clock:u              #    0.001 CPUs utilized          
                  0      context-switches:u        #    0.000 K/sec                  
                  0      cpu-migrations:u          #    0.000 K/sec                  
-             1,460      page-faults:u             #    0.064 M/sec                  
-        30,957,597      cycles:u                  #    1.352 GHz                      (83.66%)
-         1,074,376      stalled-cycles-frontend:u #    3.47% frontend cycles idle     (87.43%)
-        10,275,840      stalled-cycles-backend:u  #   33.19% backend cycles idle      (73.86%)
-        92,654,983      instructions:u            #    2.99  insn per cycle         
-                                                  #    0.11  stalled cycles per insn  (64.47%)
-        16,210,760      branches:u                #  708.078 M/sec                  
-           143,266      branch-misses:u           #    0.88% of all branches          (90.58%)
+             1,455      page-faults:u             #    0.069 M/sec                  
+        37,601,684      cycles:u                  #    1.795 GHz                      (55.06%)
+         1,209,565      stalled-cycles-frontend:u #    3.22% frontend cycles idle     (61.02%)
+         9,813,832      stalled-cycles-backend:u  #   26.10% backend cycles idle      (98.47%)
+        77,955,328      instructions:u            #    2.07  insn per cycle         
+                                                  #    0.13  stalled cycles per insn
+        16,215,594      branches:u                #  774.233 M/sec                  
+           146,077      branch-misses:u           #    0.90% of all branches          (85.45%)
 
-      19.197362890 seconds time elapsed
+      15.927508032 seconds time elapsed
 
-       0.020399000 seconds user
-       0.004079000 seconds sys
+       0.012350000 seconds user
+       0.009263000 seconds sys
 
 
