@@ -9,23 +9,33 @@
 #define C 1.0
 #define TEND 2.0
 
+/**
+ * @brief Initial arrays.
+ * 
+ * @param U Wave state array.
+ * @param mask Boundary mask array.
+ * @param xlin X-lin array for simulate the wave start.
+ */
 void initialize_arrays(double U[N][N], bool mask[N][N], double xlin[N])
 {
     double dx = BOXSIZE / N;
+    // Initialize along x-axis
     for (int i = 0; i < N; i++)
     {
         xlin[i] = (0.5 + i) * dx;
+        // Initialize wave and boundary mask
         for (int j = 0; j < N; j++)
         {
             U[i][j] = 0.0;
             mask[i][j] = false;
             if (i == 0 || i == N - 1 || j == 0 || j == N - 1)
             {
-                mask[i][j] = true;
+                mask[i][j] = true; // Boundary -> true
             }
         }
     }
 
+    // Additional boundary, the double-slit
     for (int i = N / 4; i < N * 9 / 32; i++)
     {
         for (int j = 0; j < N - 1; j++)
@@ -64,6 +74,12 @@ void initialize_arrays(double U[N][N], bool mask[N][N], double xlin[N])
 //     }
 // }
 
+/**
+ * @brief Transpose matrix.
+ * 
+ * @param src Source matrix.
+ * @param dest Destination matrix.
+ */
 void transpose(double src[N][N], double dest[N][N])
 {
     for (int i = 0; i < N; i++)
@@ -75,6 +91,12 @@ void transpose(double src[N][N], double dest[N][N])
     }
 }
 
+/**
+ * @brief Output wave state to file.
+ * 
+ * @param U Wave state array.
+ * @param file Output file pointer.
+ */
 void output_to_file(double U[N][N], FILE *file)
 {
     for (int i = 0; i < N; i++)
@@ -88,6 +110,14 @@ void output_to_file(double U[N][N], FILE *file)
     fflush(file);
 }
 
+/**
+ * @brief Update wave array over time.
+ * 
+ * @param U Current wave state array.
+ * @param Uprev Previous wave state array.
+ * @param mask Boundary mask array.
+ * @param xlin X-lin array for simulate the wave start.
+ */
 void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], double xlin[N])
 {
     double dx = BOXSIZE / N;
@@ -108,14 +138,14 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
                 Unew[i][j] = 2 * U[i][j] - Uprev[i][j] + fac * laplacian;
             }
         }
-        // Apply boundary conditions
+        // Apply boundary and initial conditions
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < N; j++)
             {
                 if (mask[i][j])
                 {
-                    Unew[i][j] = 0;
+                    Unew[i][j] = 0; // Boundary -> 0
                 }
                 if (i == 0)
                 {
@@ -126,6 +156,7 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
 
         // Swap arrays
         // free(Uprev);
+        // Update wave state arrays
         memcpy(Uprev, U, sizeof(double) * N * N);
         memcpy(U, Unew, sizeof(double) * N * N);
         // Uprev = U;
@@ -142,7 +173,7 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
             {
                 if (mask[i][j])
                 {
-                    Unew[i][j] = HUGE_VAL; // 使用HUGE_VAL来模拟NaN
+                    Unew[i][j] = HUGE_VAL; // use HUGE_VAL to simulate NaN
                 }
             }
         }
@@ -163,11 +194,12 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
         //     printf("\n");
         // }
         // char filename[50];
-        // sprintf(filename, "output/uplot_data_%lf.txt", t); // 格式化文件名
+        // sprintf(filename, "output/uplot_data_%lf.txt", t); // Format file name
         // FILE *file = fopen(filename, "w");
         // output_to_file(UT, file);
         // fclose(file);
 
+        // Increase time
         t += dt;
 
         // free(Uplot);
@@ -183,6 +215,11 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
     // free(U);
 }
 
+/**
+ * @brief Main.
+ * 
+ * @return 0.
+ */
 int main()
 {
     double xlin[N];
