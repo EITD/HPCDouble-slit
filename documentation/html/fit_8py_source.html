@@ -103,39 +103,40 @@ $(function(){initNavTree('fit_8py_source.html',''); initResizable(); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> curve_fit</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="namespacefit.html#a59954f9ddc7bd5849baf28f0b04501b3">    5</a></span>sizes = np.array([2, 4, 8, 16, 32, 64, 128, 256]) </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespacefit.html#ac150111bafc331bafb353619452c5c5c">    7</a></span>times = np.array([[1.206496, 1.249228, 1.186479, 1.178838, 1.185821, 1.178749, 1.231941, 1.207286, 1.178388, 1.244971],</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>                  [0.696229, 0.704933, 0.692426, 0.678094, 0.678371, 0.654786, 0.694719, 0.701237, 0.747455, 0.682750],</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>                  [0.406984, 0.440676, 0.403153, 0.356672, 0.340014, 0.447963, 0.435164, 0.427108, 0.386391, 0.503272],</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                  [0.296546, 0.350694, 0.393596, 0.348008, 0.321084, 0.368499, 0.359577, 0.397056, 0.296921, 0.315270],</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                  [0.259065, 0.343517, 0.328899, 0.228369, 0.251328, 0.262712, 0.346113, 0.314659, 0.254058, 0.239217],</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>                  [0.283996, 0.273704, 0.324474, 0.269711, 0.297539, 0.341424, 0.301552, 0.284397, 0.314262, 0.301697],</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                  [0.646985, 0.656064, 0.714164, 0.660563, 0.674421, 0.701120, 0.644161, 0.719139, 0.713670, 0.660456],</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>                  [4.198140, 4.377847, 4.349366, 4.428361, 4.353365, 4.343055, 4.326812, 4.408251, 4.231253, 4.336702]])</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacefit.html#a462c6236d48c791996fa3f95a622bf93">   16</a></span>means = np.mean(times, axis=1)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="" data-end="">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacefit.html#ace8322d871fde1d720d340678b95d9dc">   18</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacefit.html#ace8322d871fde1d720d340678b95d9dc">performance_model</a>(p, a, b, c, d, e):</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">with</span> np.errstate(invalid=<span class="stringliteral">&#39;ignore&#39;</span>, divide=<span class="stringliteral">&#39;ignore&#39;</span>):</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                <span class="keywordflow">return</span> a/(p+d) + b*(p+d)**c + e</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"># number of processes</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespacefit.html#a59954f9ddc7bd5849baf28f0b04501b3">    6</a></span>sizes = np.array([2, 4, 8, 16, 32, 64, 128, 256]) </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"># 10 execution times for each case </span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespacefit.html#ac150111bafc331bafb353619452c5c5c">    8</a></span>times = np.array([[1.206496, 1.249228, 1.186479, 1.178838, 1.185821, 1.178749, 1.231941, 1.207286, 1.178388, 1.244971],</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>                  [0.696229, 0.704933, 0.692426, 0.678094, 0.678371, 0.654786, 0.694719, 0.701237, 0.747455, 0.682750],</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                  [0.406984, 0.440676, 0.403153, 0.356672, 0.340014, 0.447963, 0.435164, 0.427108, 0.386391, 0.503272],</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                  [0.296546, 0.350694, 0.393596, 0.348008, 0.321084, 0.368499, 0.359577, 0.397056, 0.296921, 0.315270],</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>                  [0.259065, 0.343517, 0.328899, 0.228369, 0.251328, 0.262712, 0.346113, 0.314659, 0.254058, 0.239217],</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                  [0.283996, 0.273704, 0.324474, 0.269711, 0.297539, 0.341424, 0.301552, 0.284397, 0.314262, 0.301697],</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>                  [0.646985, 0.656064, 0.714164, 0.660563, 0.674421, 0.701120, 0.644161, 0.719139, 0.713670, 0.660456],</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                  [4.198140, 4.377847, 4.349366, 4.428361, 4.353365, 4.343055, 4.326812, 4.408251, 4.231253, 4.336702]])</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacefit.html#a462c6236d48c791996fa3f95a622bf93">   17</a></span>means = np.mean(times, axis=1)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="" data-end="">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacefit.html#ace8322d871fde1d720d340678b95d9dc">   19</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacefit.html#ace8322d871fde1d720d340678b95d9dc">performance_model</a>(p, a, b, c, d, e):</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">with</span> np.errstate(invalid=<span class="stringliteral">&#39;ignore&#39;</span>, divide=<span class="stringliteral">&#39;ignore&#39;</span>):</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                <span class="keywordflow">return</span> a/(p+d) + b*(p+d)**c + e</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacefit.html#a41000f175dc0115080e2a682cc06dbe9">   22</a></span>params, params_covariance = curve_fit(performance_model, sizes, means)</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacefit.html#a574732c04d57514f219fc914fdcb54e5">   24</a></span>plt.figure(figsize=(10, 7))</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacefit.html#a22f45a3cb4f074e609f58ebaeef0ecf9">   25</a></span>plt.plot(sizes, means, marker=<span class="stringliteral">&#39;o&#39;</span>, linestyle=<span class="stringliteral">&#39;-&#39;</span>, label=<span class="stringliteral">&#39;Measured Data&#39;</span>)</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacefit.html#a37dbdc30935031c05304482e1be89d8f">   26</a></span>plt.plot(sizes, <a class="code hl_function" href="namespacefit.html#ace8322d871fde1d720d340678b95d9dc">performance_model</a>(sizes, *params), color=<span class="stringliteral">&#39;red&#39;</span>, label=<span class="stringliteral">&#39;Fitted function: a/(p+d) + b*(p+d)^c + e&#39;</span>)</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>plt.xlabel(<span class="stringliteral">&#39;Number of Processes&#39;</span>)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>plt.ylabel(<span class="stringliteral">&#39;Execution Time (seconds)&#39;</span>)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>plt.title(<span class="stringliteral">&#39;Performance Modeling of Distributed Matrix Multiplication&#39;</span>)</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>plt.xticks(sizes)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>plt.legend()</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>plt.savefig(<span class="stringliteral">&#39;model.png&#39;</span>)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>print(<span class="stringliteral">&quot;Fitted parameters: a =&quot;</span>, params[0], <span class="stringliteral">&quot;, b =&quot;</span>, params[1], <span class="stringliteral">&quot;, c =&quot;</span>, params[2], <span class="stringliteral">&quot;, d =&quot;</span>, params[3], <span class="stringliteral">&quot;, e =&quot;</span>, params[4])</div>
-<div class="ttc" id="anamespacefit_html_ace8322d871fde1d720d340678b95d9dc"><div class="ttname"><a href="namespacefit.html#ace8322d871fde1d720d340678b95d9dc">fit.performance_model</a></div><div class="ttdeci">performance_model(p, a, b, c, d, e)</div><div class="ttdef"><b>Definition</b> <a href="#l00018">fit.py:18</a></div></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacefit.html#a41000f175dc0115080e2a682cc06dbe9">   23</a></span>params, params_covariance = curve_fit(performance_model, sizes, means)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacefit.html#a574732c04d57514f219fc914fdcb54e5">   25</a></span>plt.figure(figsize=(10, 7))</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacefit.html#a22f45a3cb4f074e609f58ebaeef0ecf9">   26</a></span>plt.plot(sizes, means, marker=<span class="stringliteral">&#39;o&#39;</span>, linestyle=<span class="stringliteral">&#39;-&#39;</span>, label=<span class="stringliteral">&#39;Measured Data&#39;</span>)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacefit.html#a37dbdc30935031c05304482e1be89d8f">   27</a></span>plt.plot(sizes, <a class="code hl_function" href="namespacefit.html#ace8322d871fde1d720d340678b95d9dc">performance_model</a>(sizes, *params), color=<span class="stringliteral">&#39;red&#39;</span>, label=<span class="stringliteral">&#39;Fitted function: a/(p+d) + b*(p+d)^c + e&#39;</span>)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>plt.xlabel(<span class="stringliteral">&#39;Number of Processes&#39;</span>)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>plt.ylabel(<span class="stringliteral">&#39;Execution Time (seconds)&#39;</span>)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>plt.title(<span class="stringliteral">&#39;Performance Modeling of Distributed Matrix Multiplication&#39;</span>)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>plt.xticks(sizes)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>plt.legend()</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>plt.savefig(<span class="stringliteral">&#39;model.png&#39;</span>)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>print(<span class="stringliteral">&quot;Fitted parameters: a =&quot;</span>, params[0], <span class="stringliteral">&quot;, b =&quot;</span>, params[1], <span class="stringliteral">&quot;, c =&quot;</span>, params[2], <span class="stringliteral">&quot;, d =&quot;</span>, params[3], <span class="stringliteral">&quot;, e =&quot;</span>, params[4])</div>
+<div class="ttc" id="anamespacefit_html_ace8322d871fde1d720d340678b95d9dc"><div class="ttname"><a href="namespacefit.html#ace8322d871fde1d720d340678b95d9dc">fit.performance_model</a></div><div class="ttdeci">performance_model(p, a, b, c, d, e)</div><div class="ttdef"><b>Definition</b> <a href="#l00019">fit.py:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

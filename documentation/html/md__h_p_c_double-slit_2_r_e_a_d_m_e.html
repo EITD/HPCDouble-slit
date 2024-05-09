@@ -104,13 +104,13 @@ Serial</h2>
 <div class="fragment"><div class="line">sbatch ./serial.sh</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
 OpenMp</h2>
-<p>Assign different numbers of threads before running the code. In <code>openmp.sh</code>, change the following line.</p>
+<p>Assign different numbers of threads before running the code. In <code><a class="el" href="openmp_8sh.html">openmp.sh</a></code>, change the following line.</p>
 <div class="fragment"><div class="line">export OMP_NUM_THREADS=&lt;number of threads&gt;</div>
 </div><!-- fragment --><p>Then submit the batch job.</p>
 <div class="fragment"><div class="line">sbatch ./openmp.sh</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
 MPI</h2>
-<p>Assign different numbers of processes when running the code. In <code>mpi.sh</code>, change the following line.</p>
+<p>Assign different numbers of processes when running the code. In <code><a class="el" href="mpi_8sh.html">mpi.sh</a></code>, change the following line.</p>
 <div class="fragment"><div class="line">srun -n &lt;number of processes&gt; ./finitedifference_mpi.out</div>
 </div><!-- fragment --><p>Then submit the batch job.</p>
 <div class="fragment"><div class="line">sbatch ./mpi.sh</div>
