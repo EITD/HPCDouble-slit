@@ -156,7 +156,6 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
 
         // Swap arrays
         // free(Uprev);
-        // Update wave state arrays
         memcpy(Uprev, U, sizeof(double) * N * N);
         memcpy(U, Unew, sizeof(double) * N * N);
         // Uprev = U;

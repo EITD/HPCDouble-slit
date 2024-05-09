@@ -10,22 +10,33 @@
 #define C 1.0
 #define TEND 2.0
 
+/**
+ * @brief Initial arrays.
+ * 
+ * @param U Wave state array.
+ * @param mask Boundary mask array.
+ * @param start_row Starting row index for the process.
+ * @param end_row Ending row index for the process.
+ */
 void initialize_arrays(double U[N][N], bool mask[N][N], int start_row, int end_row)
 {
     double dx = BOXSIZE / N;
+    // Initialize along x-axis for the process
     for (int i = start_row; i < end_row; i++)
     {
+        // Initialize boundary mask
         for (int j = 0; j < N; j++)
         {
             U[i][j] = 0.0;
             mask[i][j] = false;
             if (i == 0 || i == N - 1 || j == 0 || j == N - 1)
             {
-                mask[i][j] = true;
+                mask[i][j] = true; // Boundary -> true
             }
         }
     }
 
+    // Additional boundary, the double-slit
     for (int i = start_row; i < end_row; i++)
     {
         for (int j = 0; j < N - 1; j++)
@@ -50,6 +61,12 @@ void initialize_arrays(double U[N][N], bool mask[N][N], int start_row, int end_r
     }
 }
 
+/**
+ * @brief Transpose matrix.
+ * 
+ * @param src Source matrix.
+ * @param dest Destination matrix.
+ */
 void transpose(double src[N][N], double dest[N][N])
 {
     for (int i = 0; i < N; i++)
@@ -61,6 +78,12 @@ void transpose(double src[N][N], double dest[N][N])
     }
 }
 
+/**
+ * @brief Output wave state to file.
+ * 
+ * @param U Wave state array.
+ * @param file Output file pointer.
+ */
 void output_to_file(double U[N][N], FILE *file)
 {
     for (int i = 0; i < N; i++)
@@ -74,6 +97,18 @@ void output_to_file(double U[N][N], FILE *file)
     fflush(file);
 }
 
+/**
+ * @brief Update wave array over time. For each process, it will keep [start_row, end_row) lines
+ * 
+ * @param U Current wave state array.
+ * @param Uprev Previous wave state array.
+ * @param mask Boundary mask array.
+ * @param xlin X-lin array for simulate the wave start.
+ * @param start_row Starting row index for the process.
+ * @param end_row Ending row index for the process.
+ * @param rank Rank of the process.
+ * @param size Total number of processes.
+ */
 void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], double xlin[N], int start_row, int end_row, int rank, int size)
 {
     double dx = BOXSIZE / N;
@@ -88,6 +123,8 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
         if (size > 1)
         {
             MPI_Status status;
+            // send first line of rank to rank-1
+            // and save first line of rank+1 to last line+1 of rank
             if (rank == 0)
             {
                 MPI_Sendrecv(&U[start_row][0], N, MPI_DOUBLE, size - 1, 0,
@@ -107,6 +144,8 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
                              MPI_COMM_WORLD, &status);
             }
 
+            // send last line of rank to rank+1
+            // and save last line of rank-1 to first line-1 of rank
             if (rank == 0)
             {
                 MPI_Sendrecv(&U[end_row - 1][0], N, MPI_DOUBLE, rank + 1, 0,
@@ -135,14 +174,14 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
                 Unew[i][j] = 2 * U[i][j] - Uprev[i][j] + fac * laplacian;
             }
         }
-        // Apply boundary conditions
+        // Apply boundary and initial conditions
         for (int i = start_row; i < end_row; i++)
         {
             for (int j = 0; j < N; j++)
             {
                 if (mask[i][j])
                 {
-                    Unew[i][j] = 0;
+                    Unew[i][j] = 0; // Boundary -> 0
                 }
                 if (i == 0)
                 {
@@ -161,7 +200,7 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
             {
                 if (mask[i][j])
                 {
-                    Unew[i][j] = HUGE_VAL; // 使用HUGE_VAL来模拟NaN
+                    Unew[i][j] = HUGE_VAL; // use HUGE_VAL to simulate NaN
                 }
             }
         }
@@ -186,10 +225,16 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
             MPI_Send(&Unew[start_row][0], N / size * N, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
         }
 
+        // Increase time
         t += dt;
     }
 }
 
+/**
+ * @brief Main.
+ * 
+ * @return 0.
+ */
 int main(int argc, char **argv)
 {
     int rank, size, provided;
@@ -197,6 +242,7 @@ int main(int argc, char **argv)
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
+    // timer
     double start_time, stop_time, elapsed_time, total_time;
     start_time = MPI_Wtime();
 
@@ -208,6 +254,7 @@ int main(int argc, char **argv)
     int start_row = rank * N / size;
     int end_row = (rank + 1) * N / size;
 
+    // Initialize wave
     if (rank == 0)
     {
         double dx = BOXSIZE / N;
@@ -223,6 +270,7 @@ int main(int argc, char **argv)
     stop_time = MPI_Wtime();
     elapsed_time = stop_time - start_time;
 
+    // Collect the time of all thread timer records and SUM
     MPI_Reduce(&elapsed_time, &total_time, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
     if (rank == 0)
