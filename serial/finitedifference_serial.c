@@ -56,24 +56,6 @@ void initialize_arrays(double U[N][N], bool mask[N][N], double xlin[N])
     }
 }
 
-// void copy_and_apply_mask(double src[N][N], double dest[N][N], bool mask[N][N])
-// {
-//     for (int i = 0; i < N; i++)
-//     {
-//         for (int j = 0; j < N; j++)
-//         {
-//             if (mask[i][j])
-//             {
-//                 dest[i][j] = HUGE_VAL; // 使用HUGE_VAL来模拟NaN
-//             }
-//             else
-//             {
-//                 dest[i][j] = src[i][j];
-//             }
-//         }
-//     }
-// }
-
 /**
  * @brief Transpose matrix.
  * 
@@ -126,12 +108,10 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
     double t = 0;
     while (t < TEND)
     {
-        // printf("%lf, %lf\n", t, dt);
         // Compute new state
         double Unew[N][N];
         for (int i = 0; i < N; i++)
         {
-            // Unew[i] = (double *)malloc(N * sizeof(double));
             for (int j = 0; j < N; j++)
             {
                 double laplacian = (U[(i == 0 ? N - 1 : i - 1)][j] + U[i][(j == 0 ? N - 1 : j - 1)] - 4 * U[i][j] + U[(i == N - 1 ? 0 : i + 1)][j] + U[i][(j == N - 1 ? 0 : j + 1)]);
@@ -155,17 +135,9 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
         }
 
         // Swap arrays
-        // free(Uprev);
         memcpy(Uprev, U, sizeof(double) * N * N);
         memcpy(U, Unew, sizeof(double) * N * N);
-        // Uprev = U;
-        // U = Unew;
 
-        // double Uplot[N][N];
-        // for (int i = 0; i < N; i++)
-        // {
-        //     Uplot[i] = (double *)malloc(N * sizeof(double));
-        // }
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < N; j++)
@@ -178,20 +150,8 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
         }
 
         double UT[N][N];
-        // for (int i = 0; i < N; i++)
-        // {
-        //     UT[i] = (double *)malloc(N * sizeof(double));
-        // }
         transpose(Unew, UT);
 
-        // for (int i = 0; i < N; i++)
-        // {
-        //     for (int j = 0; j < N; j++)
-        //     {
-        //         printf("%lf ", UT[i][j]);
-        //     }
-        //     printf("\n");
-        // }
         // char filename[50];
         // sprintf(filename, "output/uplot_data_%lf.txt", t); // Format file name
         // FILE *file = fopen(filename, "w");
@@ -200,18 +160,7 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
 
         // Increase time
         t += dt;
-
-        // free(Uplot);
-        // free(UT);
     }
-
-    // Free the last used arrays
-    // free(Uprev);
-    // for (int i = 0; i < N; i++)
-    // {
-    //     free(U[i]);
-    // }
-    // free(U);
 }
 
 /**
@@ -225,22 +174,9 @@ int main()
     double U[N][N];
     double Uprev[N][N];
     bool mask[N][N];
-    // for (int i = 0; i < N; i++)
-    // {
-    //     U[i] = (double *)malloc(N * sizeof(double));
-    //     Uprev[i] = (double *)malloc(N * sizeof(double));
-    //     mask[i] = (bool *)malloc(N * sizeof(bool));
-    // }
 
     initialize_arrays(U, mask, xlin);
     update_wave_equation(U, Uprev, mask, xlin);
-
-    // free(xlin);
-    // for (int i = 0; i < N; i++)
-    // {
-    //     free(mask[i]);
-    // }
-    // free(mask);
 
     return 0;
 }

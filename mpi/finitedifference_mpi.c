@@ -114,7 +114,6 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
     double dx = BOXSIZE / N;
     double dt = (sqrt(2) / 2) * dx / C;
     double fac = dt * dt * C * C / (dx * dx);
-    // printf("rank: %d, start: %d, end: %d\n", rank, start_row, end_row);
     double t = 0;
     while (t < TEND)
     {
