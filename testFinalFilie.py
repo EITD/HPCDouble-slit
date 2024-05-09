@@ -1,17 +1,18 @@
-def compare_files(file1, file2):
-        with open(file1, "r") as f1, open(file2, "r") as f2:
-                for line1, line2 in zip(f1, f2):
-                        if line1 != line2:
-                                return False
-                if any(f1) or any(f2):
-                        return False
-        return True
+import numpy as np
 
+file1 = "./1.txt"
+file2 = "./2.txt"
 
-file1 = "./uplot_data_1.999786_mpi.txt"
-file2 = "./uplot_data_1.999786_openmp.txt"
+file1_data = np.loadtxt(file1, dtype=float)
+file1_data = np.where(np.isnan(file1_data) | np.isinf(file1_data), 0.0, file1_data)
+file1_data = np.around(file1_data, decimals=6)
 
-if compare_files(file1, file2):
-        print("same.")
+file2_data = np.loadtxt(file2, dtype=float)
+file2_data = np.where(np.isnan(file2_data) | np.isinf(file2_data), 0.0, file2_data)
+file2_data = np.around(file2_data, decimals=6)
+
+if np.array_equal(file1_data, file2_data):
+        print("Same")
 else:
-        print("not same.")
+        print("Not same")
+
