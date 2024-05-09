@@ -73,17 +73,12 @@ def main():
                 U[mask] = 0
                 U[0,:] = np.sin(20*np.pi*t) * np.sin(np.pi*xlin)**2
                 
-                # update time
-                t += dt
-                
-                print(t)
-                
                 # plot in real time
                 if (plotRealTime) or (t >= tEnd):
                         plt.cla()
                         Uplot = 1.*U
                         Uplot[mask] = np.nan
-                        # np.savetxt("./output/plotMatrix" + str(t) + ".txt", Uplot.T)
+                        np.savetxt("./output/uplot_data_" + '{:.6f}'.format(round(t, 6)) + ".txt", Uplot.T)
                         plt.imshow(Uplot.T, cmap=cmap)
                         plt.clim(-3, 3)
                         ax = plt.gca()
@@ -93,7 +88,9 @@ def main():
                         ax.set_aspect('equal')        
                         plt.pause(0.001)
                         outputCount += 1
-                        
+
+                # update time
+                t += dt    
         
         # Save figure
         # plt.savefig('finitedifference_.png',dpi=240)
