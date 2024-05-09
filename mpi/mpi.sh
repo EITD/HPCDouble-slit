@@ -15,5 +15,5 @@
 
 # Run the executable file 
 # and write the output into my_output_file
-srun -n 64 ./finitedifference_mpi.out
+srun -n 32 ./finitedifference_mpi.out
 # srun -n 1 ./finitedifference_mpi.out

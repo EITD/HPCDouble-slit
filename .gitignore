@@ -52,4 +52,6 @@ Mkfile.old
 dkms.conf
 output
 core
+finitedifference_mpi.out+pat+*
 *.out
+*.out+pat

@@ -1,0 +1,463 @@
+CrayPat/X:  Version 23.03.0 Revision 46f710008  02/13/23 20:24:04
+
+Number of PEs (MPI ranks):   32
+                           
+Numbers of PEs per Node:     32
+                           
+Numbers of Threads per PE:    1
+                           
+Number of Cores per Socket:  64
+
+Execution start time:  Thu May  9 16:49:09 2024
+
+System name and speed:  nid001990  2.864 GHz (nominal)
+
+AMD   Rome                 CPU  Family: 23  Model: 49  Stepping:  0
+
+Core Performance Boost:  All 32 PEs have CPB capability
+
+
+Current path to data file:
+  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/finitedifference_mpi.out+pat+100101-8611847s   (RTS)
+
+Processing step 1 of 10
+Suggested trace options file:   finitedifference_mpi.out+pat+100101-8611847s/build-options.apa
+
+
+Notes for table 1:
+
+  This table shows functions that have significant exclusive sample
+    hits, averaged across ranks.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O samp_profile ...
+
+Table 1:  Profile by Function
+
+  Samp% | Samp | Imb. |   Imb. | Group
+        |      | Samp |  Samp% |  Function
+        |      |      |        |   PE=HIDE
+       
+ 100.0% | 24.1 |   -- |     -- | Total
+|----------------------------------------------------
+|  64.8% | 15.6 |   -- |     -- | MPI
+||---------------------------------------------------
+||  57.4% | 13.8 |  4.2 |  23.8% | MPI_Send
+||   6.3% |  1.5 | 17.5 |  94.9% | MPI_Sendrecv
+||===================================================
+|  24.5% |  5.9 |   -- |     -- | USER
+||---------------------------------------------------
+||  22.9% |  5.5 |  4.5 |  46.1% | update_wave_equation
+||   1.6% |  0.4 | 11.6 | 100.0% | transpose
+||===================================================
+|  10.8% |  2.6 |   -- |     -- | ETC
+||---------------------------------------------------
+||  10.6% |  2.6 |  2.4 |  50.3% | __cray_memcpy_ROME
+|====================================================
+Processing step 2 of 10
+Notes for table 2:
+
+  This table shows functions that have the most significant exclusive
+    time, taking the maximum time across ranks and threads.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O profile_max ...
+
+Table 2:  Profile of maximum function times
+
+  Samp% | Samp | Imb. |   Imb. | Function
+        |      | Samp |  Samp% |  PE=[max,min]
+|----------------------------------------------------
+| 100.0% | 19.0 | 17.5 |  94.9% | MPI_Sendrecv
+||---------------------------------------------------
+|| 100.0% | 19.0 |   -- |     -- | pe.1
+||   0.0% |  0.0 |   -- |     -- | pe.30
+||===================================================
+|  94.7% | 18.0 |  4.2 |  23.8% | MPI_Send
+||---------------------------------------------------
+||  94.7% | 18.0 |   -- |     -- | pe.3
+||   0.0% |  0.0 |   -- |     -- | pe.1
+||===================================================
+|  63.2% | 12.0 | 11.6 | 100.0% | transpose
+||---------------------------------------------------
+||  63.2% | 12.0 |   -- |     -- | pe.0
+||   0.0% |  0.0 |   -- |     -- | pe.31
+||===================================================
+|  52.6% | 10.0 |  4.5 |  46.1% | update_wave_equation
+||---------------------------------------------------
+||  52.6% | 10.0 |   -- |     -- | pe.26
+||   5.3% |  1.0 |   -- |     -- | pe.0
+||===================================================
+|  36.8% |  7.0 |  6.8 | 100.0% | MPI_Recv
+||---------------------------------------------------
+||  36.8% |  7.0 |   -- |     -- | pe.0
+||   0.0% |  0.0 |   -- |     -- | pe.31
+||===================================================
+|  26.3% |  5.0 |  2.4 |  50.3% | __cray_memcpy_ROME
+||---------------------------------------------------
+||  26.3% |  5.0 |   -- |     -- | pe.28
+||   0.0% |  0.0 |   -- |     -- | pe.27
+||===================================================
+|   5.3% |  1.0 |  1.0 | 100.0% | getenv
+||---------------------------------------------------
+||   5.3% |  1.0 |   -- |     -- | pe.2
+||   0.0% |  0.0 |   -- |     -- | pe.31
+||===================================================
+|   5.3% |  1.0 |  1.0 | 100.0% | MPI_Reduce
+||---------------------------------------------------
+||   5.3% |  1.0 |   -- |     -- | pe.25
+||   0.0% |  0.0 |   -- |     -- | pe.31
+|====================================================
+Processing step 4 of 10
+Notes for table 3:
+
+  This table shows functions, and line numbers within functions, that
+    have significant exclusive sample hits, averaged across ranks.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O samp_profile+src ...
+
+Table 3:  Profile by Group, Function, and Line
+
+  Samp% | Samp | Imb. |  Imb. | Group
+        |      | Samp | Samp% |  Function
+        |      |      |       |   Source
+        |      |      |       |    Line
+        |      |      |       |     PE=HIDE
+       
+ 100.0% | 24.1 |   -- |    -- | Total
+|-----------------------------------------------------------------------------
+|  64.8% | 15.6 |   -- |    -- | MPI
+||----------------------------------------------------------------------------
+||  57.4% | 13.8 |  4.2 | 23.8% | MPI_Send
+||   6.3% |  1.5 | 17.5 | 94.9% | MPI_Sendrecv
+||============================================================================
+|  24.5% |  5.9 |   -- |    -- | USER
+||----------------------------------------------------------------------------
+||  22.9% |  5.5 |   -- |    -- | update_wave_equation
+3|        |      |      |       |  Private/HPCDouble-slit/mpi/finitedifference_mpi.c
+||||--------------------------------------------------------------------------
+4|||  17.9% |  4.3 |  4.7 | 53.8% | line.134
+4|||   1.7% |  0.4 |  1.6 | 82.3% | line.135
+||||==========================================================================
+||   1.6% |  0.4 |   -- |    -- | transpose
+3|        |      |      |       |  Private/HPCDouble-slit/mpi/finitedifference_mpi.c
+||============================================================================
+|  10.8% |  2.6 |   -- |    -- | ETC
+||----------------------------------------------------------------------------
+||  10.6% |  2.6 |  2.4 | 50.3% | __cray_memcpy_ROME
+|=============================================================================
+Processing step 5 of 10
+Notes for table 4:
+
+  This table shows HW performance counter data for the whole program,
+    averaged across ranks or threads, as applicable.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O hwpc ...
+
+Table 4:  Program HW Performance Counter Data
+
+PE=HIDE
+
+  
+==============================================================================
+  Total
+------------------------------------------------------------------------------
+  Thread Time                                0.277041 secs
+  CORE_TO_L2_CACHEABLE_REQUEST_ACCESS_STATUS:
+    LS_RD_BLK_C                             8,035,646 
+  L2_PREFETCH_HIT_L2                        5,847,077 
+  L2_PREFETCH_HIT_L3                        9,254,586 
+  REQUESTS_TO_L2_GROUP1:L2_HW_PF           16,693,485 
+  REQUESTS_TO_L2_GROUP1:RD_BLK_X           11,025,880 
+  Cache Lines PF from OffCore  0.039G/sec  10,846,408 lines
+  Cache Lines PF from Memory   0.006G/sec   1,591,822 lines
+  Cache Lines Requested from 
+    Memory                     0.004G/sec   1,179,314 lines
+  Write Memory Traffic GBytes  0.243G/sec        0.07 GB
+  Read Memory Traffic GBytes   0.640G/sec        0.18 GB
+  Memory traffic GBytes        0.883G/sec        0.24 GB
+  Memory Traffic / Nominal Peak                  0.5% 
+==============================================================================
+Processing step 6 of 10
+Notes for table 5:
+
+  This table show the average time and number of bytes written to each
+    output file, taking the average over the number of ranks that
+    wrote to the file.  It also shows the number of write operations,
+    and average rates.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O write_stats ...
+
+Table 5:  File Output Stats by Filename
+
+      Avg |      Avg |  Write Rate | Number |    Avg | Bytes/ | File Name=!x/^/(proc|sys)/
+    Write |    Write | MiBytes/sec |     of | Writes |   Call |  PE=HIDE
+ Time per |  MiBytes |             | Writer |    per |        | 
+   Writer |      per |             |  Ranks | Writer |        | 
+     Rank |   Writer |             |        |   Rank |        | 
+          |     Rank |             |        |        |        | 
+|-----------------------------------------------------------------------------
+| 0.000037 | 0.000031 |    0.853088 |      1 |    1.0 |  33.00 | stdout
+|=============================================================================
+Processing step 7 of 10
+Notes for table 6:
+
+  This table shows energy and power usage for the nodes with the
+    maximum, mean, and minimum usage, as well as the sum of usage over
+    all nodes.
+    Energy and power for accelerators is also shown, if applicable.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O program_energy ...
+
+Table 6:  Program energy and power usage (from Cray PM)
+
+   Node |     Node |  Process | PE=HIDE
+ Energy |    Power |     Time | 
+    (J) |      (W) |          | 
+---------------------------------------
+    109 |  340.035 | 0.320555 | Total
+=======================================
+Processing step 8 of 10
+Notes for table 7:
+
+  This table shows values shown for HiMem calculated from information
+    in the /proc/self/numa_maps files captured near the end of the
+    program. It is the total size of all pages, including huge pages,
+    that were actually mapped into physical memory from both private
+    and shared memory segments.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O himem ...
+
+Table 7:  Memory High Water Mark by Numa Node
+
+Numanode / PE=HIDE
+
+  
+===========================================================================
+  numanode.1
+---------------------------------------------------------------------------
+  Process HiMem (MiBytes)         53.2 
+  HiMem Numa Node 0 (MiBytes)      1.8 MiBytes
+  HiMem Numa Node 1 (MiBytes)     31.9 MiBytes
+  HiMem Numa Node 2 (MiBytes)      1.8 MiBytes
+  HiMem Numa Node 3 (MiBytes)      2.5 MiBytes
+  HiMem Numa Node 4 (MiBytes)      2.4 MiBytes
+  HiMem Numa Node 5 (MiBytes)      8.0 MiBytes
+  HiMem Numa Node 6 (MiBytes)      2.3 MiBytes
+  HiMem Numa Node 7 (MiBytes)      2.6 MiBytes
+===========================================================================
+  numanode.2
+---------------------------------------------------------------------------
+  Process HiMem (MiBytes)         53.4 
+  HiMem Numa Node 0 (MiBytes)      1.8 MiBytes
+  HiMem Numa Node 1 (MiBytes)      2.1 MiBytes
+  HiMem Numa Node 2 (MiBytes)     31.4 MiBytes
+  HiMem Numa Node 3 (MiBytes)      2.6 MiBytes
+  HiMem Numa Node 4 (MiBytes)      2.5 MiBytes
+  HiMem Numa Node 5 (MiBytes)      8.0 MiBytes
+  HiMem Numa Node 6 (MiBytes)      2.0 MiBytes
+  HiMem Numa Node 7 (MiBytes)      2.9 MiBytes
+===========================================================================
+  numanode.3
+---------------------------------------------------------------------------
+  Process HiMem (MiBytes)         53.2 
+  HiMem Numa Node 0 (MiBytes)      1.8 MiBytes
+  HiMem Numa Node 1 (MiBytes)      2.6 MiBytes
+  HiMem Numa Node 2 (MiBytes)      2.3 MiBytes
+  HiMem Numa Node 3 (MiBytes)     31.5 MiBytes
+  HiMem Numa Node 4 (MiBytes)      2.3 MiBytes
+  HiMem Numa Node 5 (MiBytes)      8.0 MiBytes
+  HiMem Numa Node 6 (MiBytes)      2.2 MiBytes
+  HiMem Numa Node 7 (MiBytes)      2.6 MiBytes
+===========================================================================
+  numanode.4
+---------------------------------------------------------------------------
+  Process HiMem (MiBytes)         52.7 
+  HiMem Numa Node 0 (MiBytes)      1.8 MiBytes
+  HiMem Numa Node 1 (MiBytes)      2.7 MiBytes
+  HiMem Numa Node 2 (MiBytes)      1.9 MiBytes
+  HiMem Numa Node 3 (MiBytes)      2.3 MiBytes
+  HiMem Numa Node 4 (MiBytes)     31.7 MiBytes
+  HiMem Numa Node 5 (MiBytes)      8.0 MiBytes
+  HiMem Numa Node 6 (MiBytes)      2.0 MiBytes
+  HiMem Numa Node 7 (MiBytes)      2.4 MiBytes
+===========================================================================
+  numanode.6
+---------------------------------------------------------------------------
+  Process HiMem (MiBytes)         57.6 
+  HiMem Numa Node 0 (MiBytes)      1.8 MiBytes
+  HiMem Numa Node 1 (MiBytes)      3.6 MiBytes
+  HiMem Numa Node 2 (MiBytes)      2.9 MiBytes
+  HiMem Numa Node 3 (MiBytes)      3.5 MiBytes
+  HiMem Numa Node 4 (MiBytes)      2.9 MiBytes
+  HiMem Numa Node 5 (MiBytes)      8.1 MiBytes
+  HiMem Numa Node 6 (MiBytes)     32.3 MiBytes
+  HiMem Numa Node 7 (MiBytes)      2.4 MiBytes
+===========================================================================
+  numanode.7
+---------------------------------------------------------------------------
+  Process HiMem (MiBytes)         53.1 
+  HiMem Numa Node 0 (MiBytes)      1.8 MiBytes
+  HiMem Numa Node 1 (MiBytes)      3.3 MiBytes
+  HiMem Numa Node 2 (MiBytes)      2.5 MiBytes
+  HiMem Numa Node 3 (MiBytes)      3.2 MiBytes
+  HiMem Numa Node 4 (MiBytes)      2.0 MiBytes
+  HiMem Numa Node 5 (MiBytes)      8.0 MiBytes
+  HiMem Numa Node 6 (MiBytes)      2.1 MiBytes
+  HiMem Numa Node 7 (MiBytes)     30.3 MiBytes
+===========================================================================
+Processing step 9 of 10
+Notes for table 8:
+
+  This table shows memory traffic for numa nodes, taking for each numa
+    node the maximum value across nodes. It also shows the balance in
+    memory traffic by showing the top 3 and bottom 3 node values.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O mem_bw ...
+
+Table 8:  Memory Bandwidth by Numanode
+
+   Memory |     Read |    Write |   Thread |  Memory |  Memory | Numanode
+  Traffic |   Memory |   Memory |     Time | Traffic | Traffic |  PE=HIDE
+   GBytes |  Traffic |  Traffic |          |  GBytes |       / | 
+          |   GBytes |   GBytes |          |   / Sec | Nominal | 
+          |          |          |          |         |    Peak | 
+|--------------------------------------------------------------------------
+|     1.60 |     1.16 |     0.44 | 0.281263 |    5.68 |    2.8% | numanode.1
+|     0.73 |     0.53 |     0.20 | 0.282626 |    2.59 |    1.3% | numanode.2
+|     2.10 |     1.53 |     0.58 | 0.279970 |    7.51 |    3.7% | numanode.3
+|     0.97 |     0.71 |     0.26 | 0.282604 |    3.42 |    1.7% | numanode.4
+|     1.37 |     0.98 |     0.39 | 0.279859 |    4.88 |    2.4% | numanode.6
+|     1.10 |     0.80 |     0.30 | 0.281537 |    3.89 |    1.9% | numanode.7
+|==========================================================================
+Processing step 10 of 10
+
+Notes for table 9:
+
+  This table shows total wall clock time for the ranks with the
+    maximum, mean, and minimum time, as well as the average across
+    ranks.
+    It also shows maximum memory usage from /proc/self/numa_maps for
+    those ranks, and on average.  The usage is total size of all
+    pages, including huge pages, that were actually mapped into
+    physical memory from both private and shared memory segments.
+  For further explanation, see the "General table notes" below, or 
+    use:  pat_report -v -O program_time ...
+
+Table 9:  Wall Clock Time, Memory High Water Mark
+
+  Process |   Process | PE=[mmm]
+     Time |     HiMem | 
+          | (MiBytes) | 
+         
+ 0.320555 |      53.4 | Total
+|-------------------------------
+| 0.325711 |      53.4 | pe.15
+| 0.323010 |      53.2 | pe.18
+| 0.306603 |      53.2 | pe.4
+|===============================
+
+========================  Additional details  ========================
+
+
+
+General table notes:
+
+    The default notes for a table are based on the default definition of
+    the table, and do not account for the effects of command-line options
+    that may modify the content of the table.
+    
+    Detailed notes, produced by the pat_report -v option, do account for
+    all command-line options, and also show how data is aggregated, and
+    if the table content is limited by thresholds, rank selections, etc.
+    
+    An imbalance metric in a line is based on values in main threads
+    across multiple ranks, or on values across all threads, as applicable.
+    
+    An imbalance percent in a line is relative to the maximum value
+    for that line across ranks or threads, as applicable.
+    
+Experiment:  samp_cs_time
+
+Sampling interval:  10000 microsecs
+
+Original path to data file:
+  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/finitedifference_mpi.out+pat+100101-8611847s/xf-files   (RTS)
+
+Original program:
+  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/finitedifference_mpi.out
+
+Instrumented with:  pat_build finitedifference_mpi.out
+
+  Option file "apa" contained:
+    -Drtenv=PAT_RT_PERFCTR=default_samp
+    -Drtenv=PAT_RT_EXPERIMENT=samp_cs_time
+    -Drtenv=PAT_RT_SAMPLING_MODE=3
+    -g upc
+    -g caf
+    -g mpi
+    -g shmem
+    -g syscall
+    -g io
+
+Instrumented program:
+  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/./finitedifference_mpi.out+pat
+
+Program invocation:
+  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/./finitedifference_mpi.out+pat
+
+Exit Status:  0 for 32 PEs
+
+Memory pagesize:  4 KiB
+
+Memory hugepagesize:  Not Available
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  CRAYPAT_COMPILER_OPTIONS=1
+  CRAYPAT_LD_LIBRARY_PATH=/opt/cray/pe/gcc-libs:/opt/cray/gcc-libs:/opt/cray/pe/perftools/23.03.0/lib64
+  CRAYPAT_OPTS_EXECUTABLE=libexec64/opts
+  CRAYPAT_ROOT=/opt/cray/pe/perftools/23.03.0
+  CRAYPE_VERSION=2.7.20
+  CRAY_BINUTILS_VERSION=/opt/cray/pe/cce/15.0.1
+  CRAY_CC_VERSION=15.0.1
+  CRAY_DSMML_VERSION=0.2.2
+  CRAY_FTN_VERSION=15.0.1
+  CRAY_LIBSCI_VERSION=23.02.1.1
+  CRAY_MPICH_VERSION=8.1.25
+  CRAY_PERFTOOLS_VERSION=23.03.0
+  LIBSCI_VERSION=23.02.1.1
+  LMOD_FAMILY_COMPILER_VERSION=15.0.1
+  LMOD_FAMILY_CRAYPE_CPU_VERSION=false
+  LMOD_FAMILY_CRAYPE_NETWORK_VERSION=false
+  LMOD_FAMILY_CRAYPE_VERSION=2.7.20
+  LMOD_FAMILY_MPI_VERSION=8.1.25
+  LMOD_FAMILY_PERFTOOLS_VERSION=false
+  LMOD_FAMILY_PRGENV_VERSION=8.3.3
+  LMOD_VERSION=8.7.15
+  MPICH_DIR=/opt/cray/pe/mpich/8.1.25/ofi/crayclang/10.0
+  PAT_RT_EXPERIMENT=samp_cs_time
+  PAT_RT_PERFCTR=default_samp
+  PAT_RT_PERFCTR_DISABLE_COMPONENTS=nvml,cuda
+  PAT_RT_SAMPLING_MODE=3
+  PERFTOOLS_VERSION=23.03.0
+  PMI_CONTROL_PORT=22767
+  TERM_PROGRAM_VERSION=1.87.1
+
+Report time environment variables:
+    CRAYPAT_ROOT=/opt/cray/pe/perftools/23.03.0
+
+Number of MPI control variables collected:  128
+
+  (To see the list, specify: -s mpi_cvar=show)
+
+Report command line options:  <none>
+
+Operating system:
+  Linux 5.3.18-150300.59.87_11.0.81-cray_shasta_c #1 SMP Sat Jul 29 02:33:11 UTC 2023 (e1a3f65)
+
+Hardware performance counter events:
+   CORE_TO_L2_CACHEABLE_REQUEST_ACCESS_STATUS:LS_RD_BLK_C  L2 cache request outcomes. This event does not count accesses to the L2 cache by the L2 prefetcher.:Number of data cache fill requests missing in the L2 (all types).
+   L2_PREFETCH_HIT_L2                                      Number of L2 prefetcher hits in the L2
+   L2_PREFETCH_HIT_L3                                      Number of L2 prefetcher hits in the L3
+   REQUESTS_TO_L2_GROUP1:L2_HW_PF                          TBD:Number of prefetches accepted by L2 pipeline, hit or miss.
+   REQUESTS_TO_L2_GROUP1:RD_BLK_X                          TBD:Number of data cache stores
