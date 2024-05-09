@@ -25,7 +25,14 @@
 var NAVTREE =
 [
   [ "HPC Double-slit", "index.html", [
-    [ "HPCDouble-slit", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html", null ],
+    [ "HPCDouble-slit", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html", [
+      [ "How to run", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md1", [
+        [ "Serial", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md2", null ],
+        [ "OpenMp", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md3", null ],
+        [ "MPI", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md4", null ]
+      ] ],
+      [ "Check outputs", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md5", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
