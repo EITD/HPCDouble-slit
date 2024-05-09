@@ -1,35 +1,19 @@
 import os
-import re
-from math import isclose
-
-float_regex = re.compile(r'([-+]?\d*\.\d+([eE][-+]?\d+)?|[-+]?\d+[eE][-+]?\d+|[-+]?\d+)')
-
-def parse_and_compare_floats(line1, line2):
-    def get_floats(line):
-        for num in float_regex.findall(line):
-             print(num)
-        return [float(num) for num in float_regex.findall(line)]
-    
-    floats1 = get_floats(line1)
-    floats2 = get_floats(line2)
-    
-    if len(floats1) != len(floats2):
-        return False
-    
-    for num1, num2 in zip(floats1, floats2):
-        if not isclose(round(num1, 6), round(num2, 6), rel_tol=1e-6, abs_tol=1e-6):
-            print(num1, num2)
-            return False
-    return True
+import numpy as np
 
 def compare_files(file1, file2):
-        with open(file1, "r") as f1, open(file2, "r") as f2:
-                for line1, line2 in zip(f1, f2):
-                        if not parse_and_compare_floats(line1.strip(), line2.strip()):
-                                return False
-                if any(f1) or any(f2):
-                        return False
-        return True
+        file1_data = np.loadtxt(file1, dtype=float)
+        file1_data = np.where(np.isnan(file1_data) | np.isinf(file1_data), 0.0, file1_data)
+        file1_data = np.around(file1_data, decimals=6)
+
+        file2_data = np.loadtxt(file2, dtype=float)
+        file2_data = np.where(np.isnan(file2_data) | np.isinf(file2_data), 0.0, file2_data)
+        file2_data = np.around(file2_data, decimals=6)
+
+        if np.array_equal(file1_data, file2_data):
+               return True
+        else:
+               return False
 
 def compare_directories(dir1, dir2):
     files1 = sorted(os.listdir(dir1))
