@@ -40,6 +40,14 @@ Then submit the batch job.
 sbatch ./mpi.sh
 ```
 
+## Plot outputs
+Use the plot script to visualize the wave propagation. Change to serial/openmp/mpi directory for required output.
+
+```bash
+cd <target output directory>
+python3 plot.py
+```
+
 ## Check outputs
 
 In `validate.py`, change the path of `dir2` to the result output directory. Then run the script.
