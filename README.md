@@ -41,6 +41,7 @@ sbatch ./mpi.sh
 ```
 
 ## Plot outputs
+
 Use the plot script to visualize the wave propagation. Change to serial/openmp/mpi directory for required output.
 
 ```bash
@@ -52,6 +53,6 @@ python3 plot.py
 
 In `validate.py`, change the path of `dir2` to the result output directory. Then run the script.
 
-```bash
+```python
 dir2 = "mpi/output"
 ```
