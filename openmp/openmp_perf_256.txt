@@ -18,4 +18,173 @@
       86.017866000 seconds user
       58.453219000 seconds sys
 
+Performance counter stats for './finitedifference_openmp.out':
 
+        141,478.88 msec task-clock:u              #  225.274 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            34,730      page-faults:u             #    0.245 K/sec                  
+   265,586,253,278      cycles:u                  #    1.877 GHz                      (83.35%)
+     1,301,719,749      stalled-cycles-frontend:u #    0.49% frontend cycles idle     (83.38%)
+    15,236,673,437      stalled-cycles-backend:u  #    5.74% backend cycles idle      (83.16%)
+    49,583,469,355      instructions:u            #    0.19  insn per cycle         
+                                                  #    0.31  stalled cycles per insn  (83.28%)
+    12,413,176,678      branches:u                #   87.739 M/sec                    (83.50%)
+         8,090,353      branch-misses:u           #    0.07% of all branches          (83.33%)
+
+       0.628028860 seconds time elapsed
+
+      77.061681000 seconds user
+      64.419912000 seconds sys
+
+Performance counter stats for './finitedifference_openmp.out':
+
+        143,029.30 msec task-clock:u              #  226.366 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            30,336      page-faults:u             #    0.212 K/sec                  
+   272,584,036,434      cycles:u                  #    1.906 GHz                      (83.33%)
+     1,267,118,659      stalled-cycles-frontend:u #    0.46% frontend cycles idle     (83.36%)
+    15,844,483,172      stalled-cycles-backend:u  #    5.81% backend cycles idle      (83.42%)
+    50,050,343,880      instructions:u            #    0.18  insn per cycle         
+                                                  #    0.32  stalled cycles per insn  (83.35%)
+    12,513,759,477      branches:u                #   87.491 M/sec                    (83.35%)
+         7,599,771      branch-misses:u           #    0.06% of all branches          (83.18%)
+
+       0.631848635 seconds time elapsed
+
+      83.858698000 seconds user
+      59.158384000 seconds sys
+
+Performance counter stats for './finitedifference_openmp.out':
+
+        140,283.73 msec task-clock:u              #  226.704 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            34,786      page-faults:u             #    0.248 K/sec                  
+   272,841,861,578      cycles:u                  #    1.945 GHz                      (83.36%)
+     1,240,254,805      stalled-cycles-frontend:u #    0.45% frontend cycles idle     (83.47%)
+    16,089,801,638      stalled-cycles-backend:u  #    5.90% backend cycles idle      (83.52%)
+    48,777,452,589      instructions:u            #    0.18  insn per cycle         
+                                                  #    0.33  stalled cycles per insn  (83.45%)
+    12,191,477,815      branches:u                #   86.906 M/sec                    (83.13%)
+         7,584,955      branch-misses:u           #    0.06% of all branches          (83.06%)
+
+       0.618795557 seconds time elapsed
+
+      88.439363000 seconds user
+      51.814788000 seconds sys
+
+Performance counter stats for './finitedifference_openmp.out':
+
+        148,545.20 msec task-clock:u              #  227.452 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            33,168      page-faults:u             #    0.223 K/sec                  
+   290,172,824,126      cycles:u                  #    1.953 GHz                      (83.30%)
+     1,266,984,437      stalled-cycles-frontend:u #    0.44% frontend cycles idle     (83.45%)
+    15,700,270,295      stalled-cycles-backend:u  #    5.41% backend cycles idle      (83.35%)
+    50,872,289,673      instructions:u            #    0.18  insn per cycle         
+                                                  #    0.31  stalled cycles per insn  (83.41%)
+    12,695,351,533      branches:u                #   85.465 M/sec                    (83.27%)
+        10,854,980      branch-misses:u           #    0.09% of all branches          (83.22%)
+
+       0.653083329 seconds time elapsed
+
+      90.292705000 seconds user
+      58.235959000 seconds sys
+
+Performance counter stats for './finitedifference_openmp.out':
+
+        143,638.84 msec task-clock:u              #  226.500 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            34,442      page-faults:u             #    0.240 K/sec                  
+   283,117,999,183      cycles:u                  #    1.971 GHz                      (83.35%)
+     1,168,003,296      stalled-cycles-frontend:u #    0.41% frontend cycles idle     (83.34%)
+    15,777,489,696      stalled-cycles-backend:u  #    5.57% backend cycles idle      (83.45%)
+    49,737,178,262      instructions:u            #    0.18  insn per cycle         
+                                                  #    0.32  stalled cycles per insn  (83.28%)
+    12,323,065,929      branches:u                #   85.792 M/sec                    (83.26%)
+         7,378,572      branch-misses:u           #    0.06% of all branches          (83.31%)
+
+       0.634166492 seconds time elapsed
+
+      84.861989000 seconds user
+      58.754908000 seconds sys
+
+Performance counter stats for './finitedifference_openmp.out':
+
+        140,485.48 msec task-clock:u              #  227.093 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            34,740      page-faults:u             #    0.247 K/sec                  
+   269,009,235,799      cycles:u                  #    1.915 GHz                      (83.25%)
+     1,258,065,911      stalled-cycles-frontend:u #    0.47% frontend cycles idle     (83.49%)
+    15,199,170,898      stalled-cycles-backend:u  #    5.65% backend cycles idle      (83.23%)
+    49,578,402,396      instructions:u            #    0.18  insn per cycle         
+                                                  #    0.31  stalled cycles per insn  (83.42%)
+    12,427,493,849      branches:u                #   88.461 M/sec                    (83.38%)
+         6,865,249      branch-misses:u           #    0.06% of all branches          (83.22%)
+
+       0.618625612 seconds time elapsed
+
+      88.432167000 seconds user
+      52.046386000 seconds sys
+
+Performance counter stats for './finitedifference_openmp.out':
+
+        148,920.88 msec task-clock:u              #  228.769 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            34,891      page-faults:u             #    0.234 K/sec                  
+   292,944,479,601      cycles:u                  #    1.967 GHz                      (83.45%)
+     1,258,350,508      stalled-cycles-frontend:u #    0.43% frontend cycles idle     (83.44%)
+    15,444,042,210      stalled-cycles-backend:u  #    5.27% backend cycles idle      (83.32%)
+    51,620,410,265      instructions:u            #    0.18  insn per cycle         
+                                                  #    0.30  stalled cycles per insn  (83.23%)
+    13,028,785,074      branches:u                #   87.488 M/sec                    (83.16%)
+         7,673,102      branch-misses:u           #    0.06% of all branches          (83.39%)
+
+       0.650965462 seconds time elapsed
+
+      85.517341000 seconds user
+      63.373582000 seconds sys
+
+Performance counter stats for './finitedifference_openmp.out':
+
+        140,954.40 msec task-clock:u              #  228.665 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            34,715      page-faults:u             #    0.246 K/sec                  
+   271,258,837,511      cycles:u                  #    1.924 GHz                      (83.10%)
+     1,259,097,470      stalled-cycles-frontend:u #    0.46% frontend cycles idle     (83.25%)
+    14,989,336,944      stalled-cycles-backend:u  #    5.53% backend cycles idle      (83.33%)
+    49,090,960,888      instructions:u            #    0.18  insn per cycle         
+                                                  #    0.31  stalled cycles per insn  (83.45%)
+    12,238,112,352      branches:u                #   86.823 M/sec                    (83.49%)
+         7,060,521      branch-misses:u           #    0.06% of all branches          (83.38%)
+
+       0.616423018 seconds time elapsed
+
+      77.748117000 seconds user
+      63.208685000 seconds sys
+
+Performance counter stats for './finitedifference_openmp.out':
+
+        143,053.82 msec task-clock:u              #  227.500 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+            34,549      page-faults:u             #    0.242 K/sec                  
+   280,246,316,057      cycles:u                  #    1.959 GHz                      (83.28%)
+     1,299,017,730      stalled-cycles-frontend:u #    0.46% frontend cycles idle     (83.57%)
+    14,794,925,694      stalled-cycles-backend:u  #    5.28% backend cycles idle      (83.51%)
+    49,436,974,905      instructions:u            #    0.18  insn per cycle         
+                                                  #    0.30  stalled cycles per insn  (83.31%)
+    12,423,965,558      branches:u                #   86.848 M/sec                    (83.12%)
+         7,278,762      branch-misses:u           #    0.06% of all branches          (83.20%)
+
+       0.628807970 seconds time elapsed
+
+      83.840868000 seconds user
+      59.186599000 seconds sys
