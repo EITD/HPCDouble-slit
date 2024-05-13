@@ -1,26 +1,41 @@
-import numpy as np
 import matplotlib.pyplot as plt
 
-# number of processes
-sizes = np.array([1, 2, 4, 8, 16, 32, 64, 128, 256]) 
-# 10 execution times for each case 
-times = np.array([[1.859553454, 1.758163231, 1.778859024, 1.767034285, 1.757980436, 1.757439707, 1.761207838, 1.759001402, 1.756275857, 1.756477908],
-                  [1.629610837, 1.639225827, 1.626851449, 1.633786199, 1.555720492, 1.559756016, 1.624536741, 1.629530377, 1.624484203, 1.560343790],
-                  [0.875661446, 0.886450682, 0.880290206, 0.882532307, 0.877041125, 0.878195831, 0.883031702, 0.883190983, 0.882747164, 0.882673323],
-                  [0.538155208, 0.535867180, 0.538318255, 0.537134243, 0.533730515, 0.539181724, 0.535516246, 0.538764026, 0.535750188, 0.537051053],
-                  [0.375926546, 0.373524285, 0.372761335, 0.369856514, 0.371451003, 0.376120266, 0.376922831, 0.377524044, 0.379983206, 0.369503470],
-                  [0.320595529, 0.333769663, 0.334895318, 0.327706759, 0.314043821, 0.323279543, 0.310887093, 0.332921572, 0.323760321, 0.323248174],
-                  [0.305931675, 0.303423335, 0.289022784, 0.307717310, 0.285161396, 0.287683205, 0.294500514, 0.283340950, 0.294944972, 0.312905753],
-                  [0.314118054, 0.325095004, 0.287197102, 0.316145092, 0.313362811, 0.330870472, 0.356925004, 0.341554907, 0.312068538, 0.367736559],
-                  [0.642123579, 0.628028860, 0.631848635, 0.618795557, 0.653083329, 0.634166492, 0.618625612, 0.650965462, 0.616423018, 0.628807970]])
+# Data
+threads = [1, 2, 4, 8, 16, 32, 64, 128, 256]
+exec_time = [1.77119931, 1.60838459, 0.88118148, 0.53694686, 0.37435735, 0.32451078, 0.29646319, 0.32650735, 0.63228685]
+cpu_usage = [99.78, 99.65, 99.17, 98.35, 97.35, 96.53, 95.52, 93.53, 88.65]
+frontend_idle = [0.01, 0.063, 0.082, 0.074, 0.08, 0.133, 0.085, 0.088, 0.451]
+backend_idle = [77.15, 86.66, 87.84, 90.00, 92.67, 94.78, 95.85, 97.62, 5.57]
 
-means = np.mean(times, axis=1)
+# Plot
+fig, ax1 = plt.subplots(figsize=(10, 6))
 
-plt.figure(figsize=(10, 7))
-plt.plot(sizes, means, marker='o', linestyle='-', label='Measured Data')
-plt.xlabel('Number of Processes')
-plt.ylabel('Execution Time (seconds)')
-plt.title('Scaling Results of OpenMp Implementation')
-plt.xticks(sizes)
-plt.legend()
+# First axis (left y-axis)
+color = 'tab:red'
+ax1.set_xlabel('Threads')
+ax1.set_ylabel('Execution Time (s)', color=color)
+ax1.plot(threads, exec_time, color=color, label='Execution Time (s)', marker='o')
+ax1.tick_params(axis='y', labelcolor=color)
+
+# Second axis (right y-axis)
+ax2 = ax1.twinx()  
+color = 'tab:blue'
+ax2.set_ylabel('Percentage (%)', color=color)
+ax2.plot(threads, cpu_usage, color='blue', label='CPU Usage (%)', marker='s')
+ax2.plot(threads, frontend_idle, color='green', label='Frontend Idle (%)', marker='^')
+ax2.plot(threads, backend_idle, color='purple', label='Backend Idle (%)', marker='x')
+ax2.tick_params(axis='y', labelcolor=color)
+
+# Legend
+lines, labels = ax1.get_legend_handles_labels()
+lines2, labels2 = ax2.get_legend_handles_labels()
+ax2.legend(lines + lines2, labels + labels2, loc='upper left', bbox_to_anchor=(1.05, 1))
+
+# Show plot
+plt.subplots_adjust(right=0.75)
+plt.title('Performance Metrics by Number of Threads')
+plt.xticks(threads, labels=threads)
+plt.xscale('log', base=2) 
+plt.grid(True)
+plt.show()
 plt.savefig('scale.png')
