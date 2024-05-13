@@ -1,21 +1,21 @@
 
  Performance counter stats for './finitedifference_openmp.out':
 
-          20273.71 msec task-clock:u              #   61.409 CPUs utilized
+          18699.43 msec task-clock:u              #   61.123 CPUs utilized
                  0      context-switches:u        #    0.000 K/sec
                  0      cpu-migrations:u          #    0.000 K/sec
-              8969      page-faults:u             #    0.442 K/sec
-       64846265352      cycles:u                  #    3.199 GHz                      (83.57%)
-          86653708      stalled-cycles-frontend:u #    0.13% frontend cycles idle     (83.38%)
-       62287187679      stalled-cycles-backend:u  #   96.05% backend cycles idle      (82.35%)
-       15655340847      instructions:u            #    0.24  insn per cycle
-                                                  #    3.98  stalled cycles per insn  (83.54%)
-        1688331627      branches:u                #   83.277 M/sec                    (83.58%)
-           2007868      branch-misses:u           #    0.12% of all branches          (83.57%)
+              8987      page-faults:u             #    0.481 K/sec
+       59565392718      cycles:u                  #    3.185 GHz                      (83.32%)
+          76533660      stalled-cycles-frontend:u #    0.13% frontend cycles idle     (82.49%)
+       57733074314      stalled-cycles-backend:u  #   96.92% backend cycles idle      (83.51%)
+       14920598237      instructions:u            #    0.25  insn per cycle
+                                                  #    3.87  stalled cycles per insn  (83.57%)
+        1559443808      branches:u                #   83.395 M/sec                    (83.57%)
+           1683546      branch-misses:u           #    0.11% of all branches          (83.53%)
 
-       0.330140013 seconds time elapsed
+       0.305931675 seconds time elapsed
 
-      19.038463000 seconds user
-       1.233679000 seconds sys
+      17.651170000 seconds user
+       1.039720000 seconds sys
 
 
