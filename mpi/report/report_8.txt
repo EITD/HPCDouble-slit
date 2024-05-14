@@ -1,24 +1,24 @@
 CrayPat/X:  Version 23.03.0 Revision 46f710008  02/13/23 20:24:04
 
-Number of PEs (MPI ranks):   16
+Number of PEs (MPI ranks):    8
                            
-Numbers of PEs per Node:      8  PEs on each of  2  Nodes
+Numbers of PEs per Node:      4  PEs on each of  2  Nodes
                            
 Numbers of Threads per PE:    1
                            
 Number of Cores per Socket:  64
 
-Execution start time:  Sun May 12 16:03:04 2024
+Execution start time:  Tue May 14 17:44:56 2024
 
-System name and speed:  nid001073  2.028 GHz (nominal)
+System name and speed:  nid001183  1.880 GHz (nominal)
 
 AMD   Rome                 CPU  Family: 23  Model: 49  Stepping:  0
 
-Core Performance Boost:  All 16 PEs have CPB capability
+Core Performance Boost:  All 8 PEs have CPB capability
 
 
 Current path to data file:
-  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/finitedifference_mpi.out+pat+223158-8601983s   (RTS, 2 data files)
+  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/finitedifference_mpi.out+pat+196991-8603105s   (RTS, 2 data files)
 
 
 Notes for table 1:
@@ -34,22 +34,22 @@ Table 1:  Profile by Function
         |      | Samp |  Samp% |  Function
         |      |      |        |   PE=HIDE
        
- 100.0% | 29.9 |   -- |     -- | Total
+ 100.0% | 45.9 |   -- |     -- | Total
 |----------------------------------------------------
-|  65.3% | 19.5 |   -- |     -- | MPI
+|  60.5% | 27.8 |   -- |     -- | MPI
 ||---------------------------------------------------
-||  55.4% | 16.6 |  8.4 |  36.0% | MPI_Send
-||   7.9% |  2.4 | 16.6 |  93.3% | MPI_Sendrecv
-||   1.9% |  0.6 |  8.4 | 100.0% | MPI_Recv
+||  43.9% | 20.1 | 15.9 |  50.4% | MPI_Send
+||  11.7% |  5.4 | 15.6 |  85.0% | MPI_Sendrecv
+||   4.9% |  2.2 | 15.8 | 100.0% | MPI_Recv
 ||===================================================
-|  27.0% |  8.1 |   -- |     -- | USER
+|  34.3% | 15.8 |   -- |     -- | USER
 ||---------------------------------------------------
-||  24.1% |  7.2 |  9.8 |  61.6% | update_wave_equation
-||   2.9% |  0.9 | 13.1 | 100.0% | transpose
+||  31.1% | 14.2 | 11.8 |  51.6% | update_wave_equation
+||   3.3% |  1.5 | 10.5 | 100.0% | transpose
 ||===================================================
-|   7.7% |  2.3 |   -- |     -- | ETC
+|   5.2% |  2.4 |   -- |     -- | ETC
 ||---------------------------------------------------
-||   7.5% |  2.2 |  2.8 |  58.7% | __cray_memcpy_ROME
+||   4.9% |  2.2 |  2.8 |  62.9% | __cray_memcpy_ROME
 |====================================================
 
 Notes for table 2:
@@ -64,46 +64,46 @@ Table 2:  Profile of maximum function times
   Samp% | Samp | Imb. |   Imb. | Function
         |      | Samp |  Samp% |  PE=[max,min]
 |----------------------------------------------------
-| 100.0% | 25.0 |  8.4 |  36.0% | MPI_Send
+| 100.0% | 36.0 | 15.9 |  50.4% | MPI_Send
 ||---------------------------------------------------
-|| 100.0% | 25.0 |   -- |     -- | pe.10
+|| 100.0% | 36.0 |   -- |     -- | pe.4
 ||   0.0% |  0.0 |   -- |     -- | pe.1
 ||===================================================
-|  76.0% | 19.0 | 16.6 |  93.3% | MPI_Sendrecv
+|  72.2% | 26.0 | 11.8 |  51.6% | update_wave_equation
 ||---------------------------------------------------
-||  76.0% | 19.0 |   -- |     -- | pe.1
-||   0.0% |  0.0 |   -- |     -- | pe.12
+||  72.2% | 26.0 |   -- |     -- | pe.2
+||  11.1% |  4.0 |   -- |     -- | pe.4
 ||===================================================
-|  68.0% | 17.0 |  9.8 |  61.6% | update_wave_equation
+|  58.3% | 21.0 | 15.6 |  85.0% | MPI_Sendrecv
 ||---------------------------------------------------
-||  68.0% | 17.0 |   -- |     -- | pe.5
-||  12.0% |  3.0 |   -- |     -- | pe.8
+||  58.3% | 21.0 |   -- |     -- | pe.1
+||   0.0% |  0.0 |   -- |     -- | pe.0
 ||===================================================
-|  56.0% | 14.0 | 13.1 | 100.0% | transpose
+|  50.0% | 18.0 | 15.8 | 100.0% | MPI_Recv
 ||---------------------------------------------------
-||  56.0% | 14.0 |   -- |     -- | pe.0
-||   0.0% |  0.0 |   -- |     -- | pe.15
+||  50.0% | 18.0 |   -- |     -- | pe.0
+||   0.0% |  0.0 |   -- |     -- | pe.7
 ||===================================================
-|  36.0% |  9.0 |  8.4 | 100.0% | MPI_Recv
+|  33.3% | 12.0 | 10.5 | 100.0% | transpose
 ||---------------------------------------------------
-||  36.0% |  9.0 |   -- |     -- | pe.0
-||   0.0% |  0.0 |   -- |     -- | pe.15
+||  33.3% | 12.0 |   -- |     -- | pe.0
+||   0.0% |  0.0 |   -- |     -- | pe.7
 ||===================================================
-|  20.0% |  5.0 |  2.8 |  58.7% | __cray_memcpy_ROME
+|  13.9% |  5.0 |  2.8 |  62.9% | __cray_memcpy_ROME
 ||---------------------------------------------------
-||  20.0% |  5.0 |   -- |     -- | pe.9
-||   0.0% |  0.0 |   -- |     -- | pe.14
+||  13.9% |  5.0 |   -- |     -- | pe.6
+||   0.0% |  0.0 |   -- |     -- | pe.1
 ||===================================================
-|   4.0% |  1.0 |  0.9 | 100.0% | __sin_fma
+|   2.8% |  1.0 |  0.9 | 100.0% | __sin_fma
 ||---------------------------------------------------
-||   4.0% |  1.0 |   -- |     -- | pe.0
-||   0.0% |  0.0 |   -- |     -- | pe.15
+||   2.8% |  1.0 |   -- |     -- | pe.0
+||   0.0% |  0.0 |   -- |     -- | pe.7
 |====================================================
 
 Observation:  MPI Grid Detection
 
-    There appears to be point-to-point MPI communication in a 2 X 8 grid
-    pattern. The 65.3% of the total execution time spent in MPI
+    There appears to be point-to-point MPI communication in a 2 X 2 X 2
+    grid pattern. The 60.5% of the total execution time spent in MPI
     functions might be reduced with a rank order that maximizes
     communication between ranks on the same node. The effect of several
     rank orders is estimated below.
@@ -115,9 +115,9 @@ Observation:  MPI Grid Detection
                             of Total  
                             Bytes/PE  
 
-          Fold  1.990e+08     49.28%  2
-    RoundRobin  1.663e+08     41.18%  0
-           SMP  1.460e+08     36.14%  1
+          Fold  1.716e+08     48.16%  2
+    RoundRobin  1.425e+08     40.00%  0
+           SMP  1.092e+08     30.65%  1
 
 
 Observation:  Metric-Based Rank Order
@@ -140,16 +140,16 @@ Observation:  Metric-Based Rank Order
       Order  Metric    in Max      Value  Value
                Imb.     Value             
 
-    Current  27.53%            8.900e+01  6.450e+01
-     Custom   3.73%   24.719%  6.700e+01  6.450e+01
+    Current  32.98%            9.400e+01  6.300e+01
+     Custom   7.35%   27.660%  6.800e+01  6.300e+01
 
 
 Observation:  MPI utilization
 
-    The time spent processing MPI communications is relatively high and
-    not evenly balanced over all PEs.  Functions and callsites
-    responsible for consuming the most time can be found in the table
-    generated by pat_report -O callers+src (within the MPI group).
+    The time spent processing MPI communications is relatively high. 
+    Functions and callsites responsible for consuming the most time can
+    be found in the table generated by pat_report -O callers+src (within
+    the MPI group).
 
 
 Notes for table 3:
@@ -167,34 +167,36 @@ Table 3:  Profile by Group, Function, and Line
         |      |      |        |    Line
         |      |      |        |     PE=HIDE
        
- 100.0% | 29.9 |   -- |     -- | Total
+ 100.0% | 45.9 |   -- |     -- | Total
 |-----------------------------------------------------------------------------
-|  65.3% | 19.5 |   -- |     -- | MPI
+|  60.5% | 27.8 |   -- |     -- | MPI
 ||----------------------------------------------------------------------------
-||  55.4% | 16.6 |  8.4 |  36.0% | MPI_Send
-||   7.9% |  2.4 | 16.6 |  93.3% | MPI_Sendrecv
-||   1.9% |  0.6 |  8.4 | 100.0% | MPI_Recv
+||  43.9% | 20.1 | 15.9 |  50.4% | MPI_Send
+||  11.7% |  5.4 | 15.6 |  85.0% | MPI_Sendrecv
+||   4.9% |  2.2 | 15.8 | 100.0% | MPI_Recv
 ||============================================================================
-|  27.0% |  8.1 |   -- |     -- | USER
+|  34.3% | 15.8 |   -- |     -- | USER
 ||----------------------------------------------------------------------------
-||  24.1% |  7.2 |   -- |     -- | update_wave_equation
+||  31.1% | 14.2 |   -- |     -- | update_wave_equation
 3|        |      |      |        |  Private/HPCDouble-slit/mpi/finitedifference_mpi.c
 ||||--------------------------------------------------------------------------
-4|||  15.3% |  4.6 |  9.4 |  71.9% | line.134
-4|||   3.8% |  1.1 |  1.9 |  66.7% | line.135
-4|||   1.5% |  0.4 |  0.6 |  60.0% | line.141
-4|||   1.3% |  0.4 |  1.6 |  86.7% | line.143
-4|||   1.5% |  0.4 |  1.6 |  83.3% | line.162
+4|||   1.1% |  0.5 |  1.5 |  85.7% | line.170
+4|||  19.6% |  9.0 | 10.0 |  60.2% | line.172
+4|||   3.5% |  1.6 |  4.4 |  83.3% | line.173
+4|||   1.4% |  0.6 |  1.4 |  78.6% | line.179
+4|||   1.6% |  0.8 |  2.2 |  85.7% | line.181
+4|||   1.1% |  0.5 |  1.5 |  85.7% | line.198
+4|||   2.5% |  1.1 |  1.9 |  71.4% | line.200
 ||||==========================================================================
-||   2.9% |  0.9 |   -- |     -- | transpose
+||   3.3% |  1.5 |   -- |     -- | transpose
 3|        |      |      |        |  Private/HPCDouble-slit/mpi/finitedifference_mpi.c
 ||||--------------------------------------------------------------------------
-4|||   1.0% |  0.3 |  4.7 | 100.0% | line.57
-4|||   1.9% |  0.6 |  8.4 | 100.0% | line.59
+4|||   1.9% |  0.9 |  6.1 | 100.0% | line.74
+4|||   1.4% |  0.6 |  4.4 | 100.0% | line.76
 ||============================================================================
-|   7.7% |  2.3 |   -- |     -- | ETC
+|   5.2% |  2.4 |   -- |     -- | ETC
 ||----------------------------------------------------------------------------
-||   7.5% |  2.2 |  2.8 |  58.7% | __cray_memcpy_ROME
+||   4.9% |  2.2 |  2.8 |  62.9% | __cray_memcpy_ROME
 |=============================================================================
 
 Notes for table 4:
@@ -212,21 +214,21 @@ PE=HIDE
 ==============================================================================
   Total
 ------------------------------------------------------------------------------
-  Thread Time                                0.323055 secs
+  Thread Time                                0.482069 secs
   CORE_TO_L2_CACHEABLE_REQUEST_ACCESS_STATUS:
-    LS_RD_BLK_C                             9,101,865 
-  L2_PREFETCH_HIT_L2                        6,857,159 
-  L2_PREFETCH_HIT_L3                       10,894,751 
-  REQUESTS_TO_L2_GROUP1:L2_HW_PF           19,496,126 
-  REQUESTS_TO_L2_GROUP1:RD_BLK_X           12,627,722 
-  Cache Lines PF from OffCore  0.039G/sec  12,638,968 lines
-  Cache Lines PF from Memory   0.005G/sec   1,744,216 lines
+    LS_RD_BLK_C                            10,672,298 
+  L2_PREFETCH_HIT_L2                        8,724,960 
+  L2_PREFETCH_HIT_L3                       13,031,143 
+  REQUESTS_TO_L2_GROUP1:L2_HW_PF           23,972,248 
+  REQUESTS_TO_L2_GROUP1:RD_BLK_X           13,694,673 
+  Cache Lines PF from OffCore  0.032G/sec  15,247,289 lines
+  Cache Lines PF from Memory   0.005G/sec   2,216,146 lines
   Cache Lines Requested from 
-    Memory                     0.004G/sec   1,256,085 lines
-  Write Memory Traffic GBytes  0.224G/sec        0.07 GB
-  Read Memory Traffic GBytes   0.594G/sec        0.19 GB
-  Memory traffic GBytes        0.818G/sec        0.26 GB
-  Memory Traffic / Nominal Peak                  0.4% 
+    Memory                     0.003G/sec   1,551,185 lines
+  Write Memory Traffic GBytes  0.168G/sec        0.08 GB
+  Read Memory Traffic GBytes   0.500G/sec        0.24 GB
+  Memory traffic GBytes        0.668G/sec        0.32 GB
+  Memory Traffic / Nominal Peak                  0.3% 
 ==============================================================================
 
 Notes for table 5:
@@ -247,8 +249,8 @@ Table 5:  File Output Stats by Filename
      Rank |   Writer |             |        |   Rank |        | 
           |     Rank |             |        |        |        | 
 |-----------------------------------------------------------------------------
-| 0.000049 | 0.000386 |    7.958164 |     10 |    6.6 |  61.33 | _UnknownFile_
-| 0.000037 | 0.000031 |    0.848053 |      1 |    1.0 |  33.00 | stdout
+| 0.000065 | 0.000501 |    7.712134 |      6 |    9.0 |  58.37 | _UnknownFile_
+| 0.000021 | 0.000031 |    1.487299 |      1 |    1.0 |  33.00 | stdout
 |=============================================================================
 
 Notes for table 6:
@@ -266,10 +268,10 @@ Table 6:  Program energy and power usage (from Cray PM)
  Energy |    Power |     Time |  PE=HIDE
     (J) |      (W) |          | 
        
-    164 |  470.182 | 0.348801 | Total
+    236 |  468.168 | 0.504093 | Total
 |---------------------------------------
-|     83 |  237.724 | 0.349144 | nid.1
-|     81 |  232.453 | 0.348458 | nid.0
+|    121 |  239.957 | 0.504258 | nid.1
+|    115 |  228.208 | 0.503927 | nid.0
 |=======================================
 
 Notes for table 7:
@@ -290,87 +292,63 @@ Numanode / PE=HIDE
 ============================================================================
   numanode.0
 ----------------------------------------------------------------------------
-  Process HiMem (MiBytes)         102.5 
-  HiMem Numa Node 0 (MiBytes)      81.2 MiBytes
-  HiMem Numa Node 1 (MiBytes)       2.1 MiBytes
+  Process HiMem (MiBytes)         104.0 
+  HiMem Numa Node 0 (MiBytes)      86.4 MiBytes
+  HiMem Numa Node 1 (MiBytes)       1.9 MiBytes
   HiMem Numa Node 2 (MiBytes)       1.9 MiBytes
-  HiMem Numa Node 3 (MiBytes)       1.9 MiBytes
-  HiMem Numa Node 4 (MiBytes)       5.5 MiBytes
-  HiMem Numa Node 5 (MiBytes)       1.9 MiBytes
-  HiMem Numa Node 6 (MiBytes)       5.2 MiBytes
-  HiMem Numa Node 7 (MiBytes)       2.9 MiBytes
+  HiMem Numa Node 3 (MiBytes)       2.0 MiBytes
+  HiMem Numa Node 4 (MiBytes)       5.3 MiBytes
+  HiMem Numa Node 5 (MiBytes)       2.3 MiBytes
+  HiMem Numa Node 6 (MiBytes)       1.9 MiBytes
+  HiMem Numa Node 7 (MiBytes)       2.3 MiBytes
 ============================================================================
   numanode.1
 ----------------------------------------------------------------------------
-  Process HiMem (MiBytes)         103.0 
+  Process HiMem (MiBytes)         103.2 
   HiMem Numa Node 0 (MiBytes)       2.2 MiBytes
-  HiMem Numa Node 1 (MiBytes)      68.6 MiBytes
-  HiMem Numa Node 2 (MiBytes)       1.8 MiBytes
-  HiMem Numa Node 3 (MiBytes)       2.0 MiBytes
-  HiMem Numa Node 4 (MiBytes)      16.6 MiBytes
-  HiMem Numa Node 5 (MiBytes)       2.2 MiBytes
-  HiMem Numa Node 6 (MiBytes)       7.0 MiBytes
-  HiMem Numa Node 7 (MiBytes)       2.6 MiBytes
-============================================================================
-  numanode.2
-----------------------------------------------------------------------------
-  Process HiMem (MiBytes)         102.6 
-  HiMem Numa Node 0 (MiBytes)       3.3 MiBytes
-  HiMem Numa Node 1 (MiBytes)       1.9 MiBytes
-  HiMem Numa Node 2 (MiBytes)      78.5 MiBytes
-  HiMem Numa Node 3 (MiBytes)       2.1 MiBytes
-  HiMem Numa Node 4 (MiBytes)       4.3 MiBytes
-  HiMem Numa Node 5 (MiBytes)       1.8 MiBytes
-  HiMem Numa Node 6 (MiBytes)       8.6 MiBytes
-  HiMem Numa Node 7 (MiBytes)       2.0 MiBytes
+  HiMem Numa Node 1 (MiBytes)      27.3 MiBytes
+  HiMem Numa Node 2 (MiBytes)       1.9 MiBytes
+  HiMem Numa Node 3 (MiBytes)       1.9 MiBytes
+  HiMem Numa Node 4 (MiBytes)      10.2 MiBytes
+  HiMem Numa Node 5 (MiBytes)      55.7 MiBytes
+  HiMem Numa Node 6 (MiBytes)       1.8 MiBytes
+  HiMem Numa Node 7 (MiBytes)       2.2 MiBytes
 ============================================================================
   numanode.3
 ----------------------------------------------------------------------------
-  Process HiMem (MiBytes)         102.6 
-  HiMem Numa Node 0 (MiBytes)       2.1 MiBytes
-  HiMem Numa Node 1 (MiBytes)      30.1 MiBytes
+  Process HiMem (MiBytes)         102.4 
+  HiMem Numa Node 0 (MiBytes)       8.9 MiBytes
+  HiMem Numa Node 1 (MiBytes)       1.8 MiBytes
   HiMem Numa Node 2 (MiBytes)       1.9 MiBytes
-  HiMem Numa Node 3 (MiBytes)      53.3 MiBytes
-  HiMem Numa Node 4 (MiBytes)       5.5 MiBytes
-  HiMem Numa Node 5 (MiBytes)       1.8 MiBytes
-  HiMem Numa Node 6 (MiBytes)       5.2 MiBytes
-  HiMem Numa Node 7 (MiBytes)       2.8 MiBytes
-============================================================================
-  numanode.4
-----------------------------------------------------------------------------
-  Process HiMem (MiBytes)         102.8 
-  HiMem Numa Node 0 (MiBytes)       2.2 MiBytes
-  HiMem Numa Node 1 (MiBytes)       2.2 MiBytes
-  HiMem Numa Node 2 (MiBytes)       2.4 MiBytes
-  HiMem Numa Node 3 (MiBytes)       2.6 MiBytes
-  HiMem Numa Node 4 (MiBytes)      87.2 MiBytes
+  HiMem Numa Node 3 (MiBytes)      82.1 MiBytes
+  HiMem Numa Node 4 (MiBytes)       1.8 MiBytes
   HiMem Numa Node 5 (MiBytes)       2.1 MiBytes
-  HiMem Numa Node 6 (MiBytes)       1.9 MiBytes
-  HiMem Numa Node 7 (MiBytes)       2.2 MiBytes
+  HiMem Numa Node 6 (MiBytes)       1.8 MiBytes
+  HiMem Numa Node 7 (MiBytes)       2.0 MiBytes
 ============================================================================
   numanode.5
 ----------------------------------------------------------------------------
-  Process HiMem (MiBytes)         102.8 
-  HiMem Numa Node 0 (MiBytes)       2.0 MiBytes
-  HiMem Numa Node 1 (MiBytes)       1.9 MiBytes
-  HiMem Numa Node 2 (MiBytes)       1.8 MiBytes
-  HiMem Numa Node 3 (MiBytes)       1.8 MiBytes
-  HiMem Numa Node 4 (MiBytes)       9.0 MiBytes
-  HiMem Numa Node 5 (MiBytes)      80.4 MiBytes
-  HiMem Numa Node 6 (MiBytes)       1.9 MiBytes
-  HiMem Numa Node 7 (MiBytes)       3.9 MiBytes
+  Process HiMem (MiBytes)         102.5 
+  HiMem Numa Node 0 (MiBytes)       5.4 MiBytes
+  HiMem Numa Node 1 (MiBytes)       1.8 MiBytes
+  HiMem Numa Node 2 (MiBytes)       1.9 MiBytes
+  HiMem Numa Node 3 (MiBytes)       2.0 MiBytes
+  HiMem Numa Node 4 (MiBytes)       5.2 MiBytes
+  HiMem Numa Node 5 (MiBytes)      82.1 MiBytes
+  HiMem Numa Node 6 (MiBytes)       1.8 MiBytes
+  HiMem Numa Node 7 (MiBytes)       2.1 MiBytes
 ============================================================================
   numanode.7
 ----------------------------------------------------------------------------
-  Process HiMem (MiBytes)         103.7 
-  HiMem Numa Node 0 (MiBytes)       2.0 MiBytes
-  HiMem Numa Node 1 (MiBytes)       2.3 MiBytes
-  HiMem Numa Node 2 (MiBytes)       1.8 MiBytes
-  HiMem Numa Node 3 (MiBytes)       2.1 MiBytes
-  HiMem Numa Node 4 (MiBytes)       5.9 MiBytes
-  HiMem Numa Node 5 (MiBytes)       2.5 MiBytes
-  HiMem Numa Node 6 (MiBytes)       5.4 MiBytes
-  HiMem Numa Node 7 (MiBytes)      81.6 MiBytes
+  Process HiMem (MiBytes)         102.5 
+  HiMem Numa Node 0 (MiBytes)       5.5 MiBytes
+  HiMem Numa Node 1 (MiBytes)       1.8 MiBytes
+  HiMem Numa Node 2 (MiBytes)       1.9 MiBytes
+  HiMem Numa Node 3 (MiBytes)       1.9 MiBytes
+  HiMem Numa Node 4 (MiBytes)       5.2 MiBytes
+  HiMem Numa Node 5 (MiBytes)       2.1 MiBytes
+  HiMem Numa Node 6 (MiBytes)       1.8 MiBytes
+  HiMem Numa Node 7 (MiBytes)      82.2 MiBytes
 ============================================================================
 
 Notes for table 8:
@@ -389,31 +367,24 @@ Table 8:  Memory Bandwidth by Numanode
           |   GBytes |   GBytes |          |   / Sec | Nominal | 
           |          |          |          |         |    Peak | 
 |--------------------------------------------------------------------------
-|     0.22 |     0.17 |     0.05 | 0.327365 |    0.68 |    0.3% | numanode.0
+|     1.17 |     0.88 |     0.29 | 0.481609 |    2.44 |    1.2% | numanode.0
 ||-------------------------------------------------------------------------
-||     0.20 |     0.15 |     0.05 | 0.324327 |    0.62 |    0.3% | nid.1
-||     0.20 |     0.15 |     0.05 | 0.327365 |    0.61 |    0.3% | nid.0
+||     1.17 |     0.88 |     0.29 | 0.480842 |    2.44 |    1.2% | nid.0
+||     0.21 |     0.16 |     0.05 | 0.481609 |    0.45 |    0.2% | nid.1
 ||=========================================================================
-|     0.58 |     0.43 |     0.15 | 0.323721 |    1.80 |    0.9% | numanode.1
-||-------------------------------------------------------------------------
-||     0.58 |     0.43 |     0.15 | 0.323721 |    1.80 |    0.9% | nid.1
-||     0.20 |     0.14 |     0.05 | 0.322458 |    0.61 |    0.3% | nid.0
-||=========================================================================
-|     0.20 |     0.15 |     0.05 | 0.323942 |    0.62 |    0.3% | numanode.2
+|     0.21 |     0.16 |     0.05 | 0.479650 |    0.43 |    0.2% | numanode.1
 |          |          |          |          |         |         |  nid.1
-|     0.19 |     0.14 |     0.05 | 0.323726 |    0.58 |    0.3% | numanode.3
+|     0.21 |     0.16 |     0.05 | 0.485285 |    0.43 |    0.2% | numanode.3
+|          |          |          |          |         |         |  nid.0
+|     0.26 |     0.20 |     0.05 | 0.485642 |    0.53 |    0.3% | numanode.5
 ||-------------------------------------------------------------------------
-||     0.20 |     0.15 |     0.05 | 0.320545 |    0.62 |    0.3% | nid.1
-||     0.19 |     0.14 |     0.05 | 0.323726 |    0.58 |    0.3% | nid.0
+||     0.23 |     0.17 |     0.06 | 0.485642 |    0.47 |    0.2% | nid.1
+||     0.21 |     0.16 |     0.05 | 0.481439 |    0.44 |    0.2% | nid.0
 ||=========================================================================
-|     0.43 |     0.30 |     0.13 | 0.323735 |    1.34 |    0.7% | numanode.4
-|          |          |          |          |         |         |  nid.0
-|     0.19 |     0.14 |     0.05 | 0.320736 |    0.59 |    0.3% | numanode.5
-|          |          |          |          |         |         |  nid.0
-|     1.52 |     1.09 |     0.42 | 0.325160 |    4.66 |    2.3% | numanode.7
+|     0.20 |     0.15 |     0.05 | 0.481505 |    0.42 |    0.2% | numanode.7
 ||-------------------------------------------------------------------------
-||     1.52 |     1.09 |     0.42 | 0.323465 |    4.69 |    2.3% | nid.0
-||     0.38 |     0.28 |     0.10 | 0.325160 |    1.18 |    0.6% | nid.1
+||     0.20 |     0.15 |     0.05 | 0.481505 |    0.41 |    0.2% | nid.1
+||     0.18 |     0.13 |     0.05 | 0.480583 |    0.37 |    0.2% | nid.0
 |==========================================================================
 
 Notes for table 9:
@@ -434,11 +405,11 @@ Table 9:  Wall Clock Time, Memory High Water Mark
      Time |     HiMem | 
           | (MiBytes) | 
          
- 0.348801 |     103.0 | Total
+ 0.504093 |     102.9 | Total
 |-------------------------------
-| 0.350483 |     102.7 | pe.13
-| 0.349057 |     107.0 | pe.0
-| 0.346382 |     103.0 | pe.2
+| 0.504680 |     102.3 | pe.7
+| 0.504258 |     102.4 | pe.3
+| 0.503533 |     102.5 | pe.5
 |===============================
 
 ========================  Additional details  ========================
@@ -466,7 +437,7 @@ Experiment:  samp_cs_time
 Sampling interval:  10000 microsecs
 
 Original path to data file:
-  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/finitedifference_mpi.out+pat+223158-8601983s/xf-files   (RTS, 2 data files)
+  /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/finitedifference_mpi.out+pat+196991-8603105s/xf-files   (RTS, 2 data files)
 
 Original program:
   /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/finitedifference_mpi.out
@@ -490,7 +461,7 @@ Instrumented program:
 Program invocation:
   /cfs/klemming/home/y/yiningho/Private/HPCDouble-slit/mpi/./finitedifference_mpi.out+pat
 
-Exit Status:  0 for 16 PEs
+Exit Status:  0 for 8 PEs
 
 Memory pagesize:  4 KiB
 
@@ -501,7 +472,6 @@ Programming environment:  CRAY
 Runtime environment variables:
   CRAYPAT_COMPILER_OPTIONS=1
   CRAYPAT_LD_LIBRARY_PATH=/opt/cray/pe/gcc-libs:/opt/cray/gcc-libs:/opt/cray/pe/perftools/23.03.0/lib64
-  CRAYPAT_LITE=lite-samples
   CRAYPAT_OPTS_EXECUTABLE=libexec64/opts
   CRAYPAT_ROOT=/opt/cray/pe/perftools/23.03.0
   CRAYPE_VERSION=2.7.20
@@ -527,7 +497,7 @@ Runtime environment variables:
   PAT_RT_PERFCTR_DISABLE_COMPONENTS=nvml,cuda
   PAT_RT_SAMPLING_MODE=3
   PERFTOOLS_VERSION=23.03.0
-  PMI_CONTROL_PORT=28724
+  PMI_CONTROL_PORT=25679
   TERM_PROGRAM_VERSION=1.87.1
 
 Report time environment variables:
