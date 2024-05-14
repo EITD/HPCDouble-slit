@@ -45,7 +45,7 @@ plt.savefig('scale.png')
 fig2, ax3 = plt.subplots(figsize=(10, 6))
 
 # First axis (left y-axis)
-color = 'tab:red'
+color = 'tab:pink'
 ax3.set_xlabel('Threads')
 ax3.set_ylabel('Execution Time (s)', color=color)
 ax3.plot(threads, exec_time, color=color, label='Execution Time (s)', marker='o')
