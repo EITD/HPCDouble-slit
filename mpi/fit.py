@@ -24,7 +24,7 @@ params, params_covariance = curve_fit(performance_model, sizes, means)
 
 plt.figure(figsize=(10, 7))
 plt.plot(sizes, means, marker='o', linestyle='-', label='Measured Data')
-plt.plot(sizes, performance_model(sizes, *params), color='red', label='Fitted function: a/(p+d) + b*(p+d)^c + e')
+# plt.plot(sizes, performance_model(sizes, *params), color='red', label='Fitted function: a/(p+d) + b*(p+d)^c + e')
 plt.xlabel('Number of Processes')
 plt.ylabel('Execution Time (seconds)')
 plt.title('Performance Modeling of Distributed Matrix Multiplication')
