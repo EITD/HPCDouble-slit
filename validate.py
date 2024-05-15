@@ -48,7 +48,7 @@ def compare_directories(dir1, dir2):
         path2 = os.path.join(dir2, file2)
                 
         if not compare_files(path1, path2):
-            print(f"Different file: {file1} 和 {file2}")
+            print(f"Different file: {file1} and {file2}")
             return False
     
     print("All same.")
