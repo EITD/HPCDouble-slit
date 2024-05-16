@@ -42,26 +42,17 @@ plt.grid(True)
 plt.savefig('scale.png')
 
 # Plot
-fig2, ax3 = plt.subplots(figsize=(10, 6))
+fig2, ax3 = plt.subplots(figsize=(10, 7))
 
 # First axis (left y-axis)
-color = 'tab:pink'
 ax3.set_xlabel('Threads')
-ax3.set_ylabel('Execution Time (s)', color=color)
-ax3.plot(threads, exec_time, color=color, label='Execution Time (s)', marker='o')
-ax3.tick_params(axis='y', labelcolor=color)
-
-# Legend
-lines, labels = ax3.get_legend_handles_labels()
-ax3.legend(lines, labels, loc='upper left', bbox_to_anchor=(1.05, 1))
+ax3.set_ylabel('Execution Time (s)')
+ax3.plot(threads, exec_time, marker='o', linestyle='-')
 
 # Show plot
-plt.subplots_adjust(right=0.75)
 plt.title('Execution Time by Number of Threads')
 plt.xticks(threads, labels=threads)
 plt.xscale('log', base=2) 
-plt.grid(True)
 plt.savefig('time.png')
-
 
 plt.show()
