@@ -46,30 +46,32 @@ def calculate_speedup_and_efficiency_S(Ts, Tp):
         return speedups, efficiencies
 
 def calculate_speedup_and_efficiency_W(Ts, Tp):
-        speedups = [Ts / t for t in Tp]
+        speedups = [s / p for s,p in zip(Ts,Tp)]
         efficiencies = []
         a = [256, 64, 16]
         for i, speedup in enumerate(speedups):
                 efficiencies.append(speedup / a[i])
         return speedups, efficiencies
 
-Ts = 0.948367014
+TsS = 0.948367014
 TpS = [1.2048197, 0.6931, 0.4147397, 0.3447251, 0.2827937, 0.2992756, 0.6790743, 4.3353152]
-TpW = [4.3353152, 0.076978, 0.009912]
 
-speedups_S, efficiencies_S = calculate_speedup_and_efficiency_S(Ts, TpS)
+speedups_S, efficiencies_S = calculate_speedup_and_efficiency_S(TsS, TpS)
 
 ideal_speedups_S = [2 ** i for i in range(1, len(TpS) + 1)]
 
 print("Results for TpS (same problem size and increasing number of processes):")
 for i, (speedup, efficiency, ideal_speedup) in enumerate(zip(speedups_S, efficiencies_S, ideal_speedups_S), start=1):
-        print(f"Processes: {2**i}, Speed-Up: {speedup}, Ideal Speed-Up: {ideal_speedup}, Efficiency: {efficiency}")
+        print(f"Processes: {2**i}, Speed-Up: {speedup:.3f}, Ideal Speed-Up: {ideal_speedup}, Efficiency: {efficiency:.3f}")
 
-speedups_W, efficiencies_W = calculate_speedup_and_efficiency_W(Ts, TpW)
+TsW = [0.948367014, 0.114787009, 0.022162241]
+TpW = [4.3353152, 0.076978, 0.009912]
+
+speedups_W, efficiencies_W = calculate_speedup_and_efficiency_W(TsW, TpW)
 
 ideal_speedups_W = [2 ** i for i in range(1, len(TpW) + 1)]
 
 print("\nResults for TpW (weak scaling):")
 a = [256, 64, 16]
 for i, (speedup, efficiency, ideal_speedup) in enumerate(zip(speedups_W, efficiencies_W, ideal_speedups_W), start=0):
-        print(f"Processes: {a[i]}, Speed-Up: {speedup}, Ideal Speed-Up: {a[i]}, Efficiency: {efficiency}")
+        print(f"Processes: {a[i]}, Speed-Up: {speedup:.3f}, Ideal Speed-Up: {a[i]}, Efficiency: {efficiency:.3f}")
