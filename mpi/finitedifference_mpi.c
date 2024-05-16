@@ -214,7 +214,7 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
             transpose(Unew, UT);
 
             // char filename[50];
-            // sprintf(filename, "output/uplot_data_%lf.txt", t); // 格式化文件名
+            // sprintf(filename, "output/uplot_data_%lf.txt", t);
             // FILE *file = fopen(filename, "w");
             // output_to_file(UT, file);
             // fclose(file);

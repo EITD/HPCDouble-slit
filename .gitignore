@@ -50,7 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-output
+output*
 core
 finitedifference_mpi.out+pat+*
 *.out
