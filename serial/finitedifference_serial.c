@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define N 256 // resolution
+#define N 128 // resolution
 #define BOXSIZE 1.0
 #define C 1.0
 #define TEND 2.0
@@ -152,11 +152,11 @@ void update_wave_equation(double U[N][N], double Uprev[N][N], bool mask[N][N], d
         double UT[N][N];
         transpose(Unew, UT);
 
-        // char filename[50];
-        // sprintf(filename, "output/uplot_data_%lf.txt", t); // Format file name
-        // FILE *file = fopen(filename, "w");
-        // output_to_file(UT, file);
-        // fclose(file);
+        char filename[50];
+        sprintf(filename, "output_128/uplot_data_%lf.txt", t); // Format file name
+        FILE *file = fopen(filename, "w");
+        output_to_file(UT, file);
+        fclose(file);
 
         // Increase time
         t += dt;
