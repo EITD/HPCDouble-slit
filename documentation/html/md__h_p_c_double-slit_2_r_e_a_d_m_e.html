@@ -115,9 +115,14 @@ MPI</h2>
 </div><!-- fragment --><p>Then submit the batch job.</p>
 <div class="fragment"><div class="line">sbatch ./mpi.sh</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+Plot outputs</h1>
+<p>Use the plot script to visualize the wave propagation. Change to serial/openmp/mpi directory for required output.</p>
+<div class="fragment"><div class="line">cd &lt;target output directory&gt;</div>
+<div class="line">python3 plot.py</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Check outputs</h1>
 <p>In <code><a class="el" href="validate_8py.html">validate.py</a></code>, change the path of <code>dir2</code> to the result output directory. Then run the script.</p>
-<div class="fragment"><div class="line">dir2 = &quot;mpi/output&quot;</div>
+<div class="fragment"><div class="line">dir2 = <span class="stringliteral">&quot;mpi/output&quot;</span></div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

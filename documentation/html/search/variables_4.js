@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['fig_0',['fig',['../namespaceplot.html#a64aa603bc3c6c1587e7c6542452481ac',1,'plot']]],
-  ['figsize_1',['figsize',['../namespacefit.html#a574732c04d57514f219fc914fdcb54e5',1,'fit']]],
-  ['file_5fpath_2',['file_path',['../namespaceplot.html#a8aa55c8aa2346c2358ce68869a197088',1,'plot']]],
-  ['folder_5fpath_3',['folder_path',['../namespaceplot.html#a55861b1fb00511edbc267f09dbb5bf75',1,'plot']]]
+  ['efficiencies_5fs_0',['efficiencies_S',['../namespacescale.html#ad051e334438974021cb2434790d14a2b',1,'scale']]],
+  ['efficiencies_5fw_1',['efficiencies_W',['../namespacescale.html#acf939b4556a69e8067034f6b411b0f6b',1,'scale']]],
+  ['entries_2',['entries',['../namespaceplot.html#a7c745d99b41956f6a081b267ae0d012d',1,'plot']]],
+  ['events_5fper_5fprocess_3',['events_per_process',['../namespacescale.html#ac5327c22b7a954691445377748f79c01',1,'scale']]],
+  ['exec_5ftime_4',['exec_time',['../namespaceplot.html#a7491a99e63f14032f49949e2c7edb955',1,'plot']]]
 ];

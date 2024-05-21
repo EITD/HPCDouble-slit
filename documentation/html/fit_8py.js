@@ -1,7 +1,6 @@
 var fit_8py =
 [
     [ "performance_model", "fit_8py.html#ace8322d871fde1d720d340678b95d9dc", null ],
-    [ "color", "fit_8py.html#a37dbdc30935031c05304482e1be89d8f", null ],
     [ "figsize", "fit_8py.html#a574732c04d57514f219fc914fdcb54e5", null ],
     [ "label", "fit_8py.html#a22f45a3cb4f074e609f58ebaeef0ecf9", null ],
     [ "linestyle", "fit_8py.html#ab9bc039d738431f72eb1cd461f3a1a32", null ],

@@ -31,7 +31,8 @@ var NAVTREE =
         [ "OpenMp", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md3", null ],
         [ "MPI", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md4", null ]
       ] ],
-      [ "Check outputs", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md5", null ]
+      [ "Plot outputs", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md5", null ],
+      [ "Check outputs", "md__h_p_c_double-slit_2_r_e_a_d_m_e.html#autotoc_md6", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
